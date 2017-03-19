@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar hideBackButton>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Page One</ion-title>
+    <ion-title>{{userName}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -15,4 +15,6 @@
   </p>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
+
+  <button ion-button danger menuToggle (click)="logOut()">Log out</button>
 </ion-content>
