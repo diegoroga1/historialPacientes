@@ -7,7 +7,29 @@ $blue: #387ef5;
   color: $blue;
   display: inline-block;
 }
+.inputs{
+  background: none;
+  color: white;
+}
 
+.inputs::-webkit-input-placeholder { color: white; font-weight :bold; }
+.inputs:-moz-placeholder { color: white; font-weight: bold; }
+.inputs::-moz-placeholder { color: white; font-weight: bold; }
+.inputs:-ms-input-placeholder { color: white;  font-weight: bold; }
+.logo{
+  height: 80px;
+  width: 80px;
+}
+.home{
+  background: rgba(147,206,222,1);
+  background: -moz-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 22%, rgba(121,191,211,1) 63%, rgba(117,189,209,1) 69%, rgba(73,165,191,1) 78%);
+  background: -webkit-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 22%, rgba(121,191,211,1) 63%, rgba(117,189,209,1) 69%, rgba(73,165,191,1) 78%);
+  background: -o-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 22%, rgba(121,191,211,1) 63%, rgba(117,189,209,1) 69%, rgba(73,165,191,1) 78%);
+  background: -ms-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 22%, rgba(121,191,211,1) 63%, rgba(117,189,209,1) 69%, rgba(73,165,191,1) 78%);
+  background: linear-gradient(to bottom, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 22%, rgba(121,191,211,1) 63%, rgba(117,189,209,1) 69%, rgba(73,165,191,1) 78%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=0 );}
 ion-icon{
   font-size: 3em;
 }
+
+

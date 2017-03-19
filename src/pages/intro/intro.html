@@ -10,20 +10,24 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="home">
   <div class="my-title">
-    <h1>Historial pacientes</h1>
-    <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>
+    <h1 >Historial de pacientes
+      <div style="height: 10px;"></div>
+      <img src="assets/images/logo.png" alt="" class="logo">
+    </h1>
+
   </div>
+  <div style="height: 30px;"></div>
   <form #form="ngForm" (ngSubmit)="submitForm(form)">
     <ion-list>
-      <ion-item style="padding-left: 0">
-        <ion-label floating>Username</ion-label>
+      <ion-item style="padding-left: 0" class="inputs">
+        <ion-label style="color: white;">Username</ion-label>
         <ion-input type="email" name="email" ngModel required></ion-input>
       </ion-item>
 
-      <ion-item style="padding-left: 0">
-        <ion-label floating>Password</ion-label>
+      <ion-item style="padding-left: 0" class="inputs">
+        <ion-label style="color: white;">Password</ion-label>
         <ion-input type="password" name="password" ngModel required></ion-input>
       </ion-item>
 
