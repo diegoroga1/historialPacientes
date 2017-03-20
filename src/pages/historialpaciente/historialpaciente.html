@@ -1,0 +1,22 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Historial de Pacientes</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h1 class="textoCentrado verde margenBot">Diagnósticos</h1>
+  <ul class="listaDiagnosticos">
+    <li class="elementoListaDiagnostico" *ngFor="let diagnostico of diagnosticos" (click)="accederDiagnostico()">
+      <p><span class="verde">Especialidad:</span><span> {{diagnostico["especialidad"]}}</span></p>
+      <p><span class="verde">Médico:</span><span> {{diagnostico.medico}}</span></p>
+      <p><span class="verde">Fecha:</span><span> {{diagnostico.fecha}}</span></p>
+      <p><span class="verde">Diagnóstico:</span><span> {{diagnostico.introduccion}}</span></p>
+    </li>
+  </ul>
+
+</ion-content>
