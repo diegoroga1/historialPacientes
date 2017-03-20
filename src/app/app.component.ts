@@ -5,7 +5,7 @@ import { Splashscreen } from 'ionic-native';
 import { IntroPage } from '../pages/intro/intro';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
-
+import {PantallaMedicoPage} from '../pages/pantalla-medico/pantalla-medico';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,6 +26,9 @@ export class MyApp {
     },{
       title: "page2",
       component: Page2
+    },{
+      title: "pagina medico",
+      component: PantallaMedicoPage
     }];
 
     this.initializeApp();
@@ -37,7 +40,7 @@ export class MyApp {
       this.rootPage = IntroPage;
     }else{
       //this.nav.setRoot(Page1);
-      this.rootPage  = Page1;
+      this.rootPage  = PantallaMedicoPage;
     }
 
   }
