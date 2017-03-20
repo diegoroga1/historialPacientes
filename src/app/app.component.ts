@@ -1,7 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {Platform, NavController} from 'ionic-angular';
 import { Splashscreen } from 'ionic-native';
-
 import { IntroPage } from '../pages/intro/intro';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';

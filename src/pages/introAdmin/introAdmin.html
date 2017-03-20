@@ -1,0 +1,28 @@
+<div padding>
+  <ion-segment [(ngModel)]="admin">
+    <ion-segment-button value="gescuenta">
+      Gestión cuenta
+    </ion-segment-button>
+    <ion-segment-button value="gescita">
+      Gestión cita
+    </ion-segment-button>
+    <ion-segment-button value="perfil">
+      Perfil
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div [ngSwitch]="admin">
+  <ion-list *ngSwitchCase="'gescuenta'">
+    <ion-item>
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+      <ion-list>
+        <ion-item *ngFor="let item of items">
+          {{ item }}
+        </ion-item>
+      </ion-list>
+    </ion-item>
+  </ion-list>
+
+</div>
+
