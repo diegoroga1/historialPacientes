@@ -1,0 +1,22 @@
+page-pantalla-medico .home {
+  background: #93cede;
+  background: -moz-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
+  background: -webkit-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
+  background: -o-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
+  background: -ms-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
+  background: linear-gradient(to bottom, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=0 ); }
+page-pantalla-medico #preview-profile button {
+  float: right; }
+  page-pantalla-medico #preview-profile button ion-icon:before {
+    font-size: 2.3em; }
+page-pantalla-medico #logo {
+  text-align: center;
+  width: 100%; }
+page-pantalla-medico .circle {
+  border-radius: 50%; }
+page-pantalla-medico .button-width {
+  width: 100%;
+  background-color: white; }
+
+/*# sourceMappingURL=pantalla-medico.css.map */
