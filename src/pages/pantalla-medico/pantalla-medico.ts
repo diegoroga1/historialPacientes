@@ -11,7 +11,7 @@ import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
   selector: 'page-pantalla-medico',
   templateUrl: 'pantalla-medico.html',
 })
-export class PantallaMedicoPage {
+export class IntroMedico {
   @ViewChild(Nav) nav: Nav;
   user:any;
   menuItems=[];

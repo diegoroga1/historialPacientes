@@ -4,7 +4,7 @@ import { MyApp } from './app.component';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import {IntroPage} from "../pages/intro/intro";
-import {PantallaMedicoPage} from '../pages/pantalla-medico/pantalla-medico';
+import {IntroMedico} from '../pages/pantalla-medico/pantalla-medico';
 // Import the AF2 Module
 import { AngularFireModule,
   AuthMethods,
@@ -30,7 +30,7 @@ export const firebaseAuthConfig = {
     IntroPage,
     Page1,
     Page2,
-    PantallaMedicoPage
+    IntroMedico
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -42,7 +42,7 @@ export const firebaseAuthConfig = {
     IntroPage,
     Page1,
     Page2,
-    PantallaMedicoPage
+    IntroMedico
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

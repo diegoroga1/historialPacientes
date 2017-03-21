@@ -18,7 +18,7 @@ import {AngularFire} from 'angularfire2';
   templateUrl: 'introAdmin.html'
 })
 
-export class IntroPage {
+export class IntroAdmin {
   saludo: string;
 
   constructor(public navCtrl: NavController, private firebase: AngularFire, public menu: MenuController, public toast: ToastController) {
