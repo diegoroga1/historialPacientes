@@ -3,9 +3,8 @@
  */
 
 import {Component} from '@angular/core';
-import {NavController, MenuController, ToastController} from 'ionic-angular';
-import {Page1} from '../page1/page1';
-import {AngularFire} from 'angularfire2';
+import {AlertController, ToastController} from 'ionic-angular';
+import {AngularFire} from "angularfire2";
 
 /*
  Generated class for the Intro page.
@@ -19,37 +18,93 @@ import {AngularFire} from 'angularfire2';
 })
 
 export class IntroAdmin {
-  saludo: string;
 
-  constructor(public navCtrl: NavController, private firebase: AngularFire, public menu: MenuController, public toast: ToastController) {
-    this.saludo = 'Login'
-    this.menu.enable(false);
+
+  constructor(public alertCtrl: AlertController, private firebase: AngularFire, public toast: ToastController) {
   }
 
-  submitForm(form: any) {
-    this.firebase.auth.login(
-      {
-        email: form.value.email,
-        password: form.value.password
-      }).then(
-      (success) => {
-        localStorage.setItem("user_uid", success.uid);
-        this.navCtrl.setRoot(Page1);
+  //Selecciona el tipo de usuario
+  selectType() {
+    let popup = this.alertCtrl.create();
+    popup.setTitle('Elija el tipo de usuario');
+    popup.addInput({
+      type: 'radio',
+      label: 'Administrador',
+      value: 'admin',
+      checked: true
+    })
+    popup.addInput({
+      type: 'radio',
+      label: 'Médico',
+      value: 'medico'
+    })
+    popup.addInput({
+      type: 'radio',
+      label: 'Paciente',
+      value: 'paciente'
+    })
+
+    popup.addButton('Cancelar');
+    popup.addButton({
+      text: 'Rellenar datos',
+      handler: type => {
+        popup.dismiss();
+        this.createAccount(type);
+        return false
       }
-    ).catch(
-      (error) => {
-        switch (error.message) {
-          case "There is no user record corresponding to this identifier. The user may have been deleted.":
-            // Cambiar por toast
-            this.writeToast('Este correo no se corresponde con ningún usuario');
-            break;
-          case "The password is invalid or the user does not have a password.":
-            // Cambiar por toast
-            this.writeToast('La contraseña no coincide');
-            break;
+    });
+    popup.present();
+  }
+
+  //Rellena los datos del usuario
+  createAccount(type) {
+    let popup2 = this.alertCtrl.create({
+      title: 'Crear Cuenta',
+      message: 'Introduzca los datos para crear un nuevo usuario',
+      inputs: [
+        {
+          name: 'nombre',
+          placeholder: 'Nombre'
+        },
+        {
+          name: 'email',
+          placeholder: 'Email',
+          type: 'email'
+        },
+        {
+          name: 'contraseña',
+          placeholder: 'Contraseña',
+          type: 'password'
         }
-      }
-    );
+      ],
+      buttons: [
+        {
+          text: 'Cancelar'
+        },
+        {
+          text: 'Crear cuenta',
+          handler: information => {
+            this.createNewUser(information.nombre,information.email, information.contraseña, type);
+          }
+        }
+      ]
+    });
+    popup2.present();
+  }
+
+  //Crea la cuenta en firebase
+  createNewUser(name,email, password, type) {
+    this.firebase.auth.createUser({
+      email: email,
+      password: password
+    }).then((sucess)=>{
+      this.firebase.database.object('/usuarios/' + sucess.uid).set({
+        name: name,
+        tipo: type
+      }).then(()=>{
+        this.writeToast("Cuenta creada correctamente");
+      });
+    });
   }
 
   writeToast(message) {
@@ -59,17 +114,5 @@ export class IntroAdmin {
     });
     toast.present();
   }
-
-  ionViewDidEnter() {
-    this.menu.close('menu1');
-    //this.menu.enable(false);
-  }
-
-  ionViewWillLeave() {
-    //this.menu.enable(true);
-  }
-
-
-
 
 }

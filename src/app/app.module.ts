@@ -10,6 +10,7 @@ import { AngularFireModule,
   AuthMethods,
   AuthProviders
 } from 'angularfire2';
+import {IntroAdmin} from "../pages/introAdmin/introAdmin";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCl1MSp5klkV1llJvw52GU3PzjOJjVYhq4",
@@ -30,7 +31,8 @@ export const firebaseAuthConfig = {
     IntroPage,
     Page1,
     Page2,
-    IntroMedico
+    IntroMedico,
+    IntroAdmin
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -42,7 +44,8 @@ export const firebaseAuthConfig = {
     IntroPage,
     Page1,
     Page2,
-    IntroMedico
+    IntroMedico,
+    IntroAdmin
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

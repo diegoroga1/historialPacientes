@@ -3,6 +3,9 @@
     <ion-segment-button value="gescuenta">
       Gestión cuenta
     </ion-segment-button>
+    <ion-segment-button value="crearcuenta">
+      Crear cuenta
+    </ion-segment-button>
     <ion-segment-button value="gescita">
       Gestión cita
     </ion-segment-button>
@@ -23,6 +26,8 @@
       </ion-list>
     </ion-item>
   </ion-list>
+
+  <button ion-button *ngSwitchCase="'crearcuenta'" (click)="selectType()">Crear cuenta</button>
 
 </div>
 
