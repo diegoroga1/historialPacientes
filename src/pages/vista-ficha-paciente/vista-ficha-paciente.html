@@ -1,0 +1,76 @@
+
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Ficha paciente</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+  <div id="datos-paciente">
+    <!--<div id="foto-paciente">
+      <img src="//ionicframework.com/img/docs/spengler.jpg" alt="">
+    </div>-->
+    <ion-grid id="grid-datos">
+      <ion-row >
+        <ion-col width-100>
+            <h3>Nombre: <span>Diego Rodriguez Garcia</span> </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-50>
+          <h3>Edad: <span>23 Años</span></h3>
+        </ion-col>
+        <ion-col width-50>
+          <h3>Sexo: <span>Varón</span> </h3>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-50>
+            <h3>Nacionalidad: <span>Español</span></h3>
+        </ion-col>
+        <ion-col width-50>
+          <h3>Fecha nacimiento: <span>06/10/1993</span></h3>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-50>
+            <h3>DNI: <span>78539177L</span></h3>
+        </ion-col>
+        <ion-col width-50>
+          <h3>Telefono: <span>677151209</span></h3>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-100>
+            <h3>Medico: <span>Patricio Calero Gonzalez</span></h3>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <hr>
+  <ion-label id="label-diags">
+    <h2>Diágnosticos</h2>
+  </ion-label>
+  <hr>
+  <ion-list id="diags-list" *ngFor="let diag of diags |async">
+    <ion-card (click)="showOptions(diag.$key, diag.title)">
+      <ion-card-header>
+        {{diag.title}}
+      </ion-card-header>
+      <ion-card-content>
+        <span class="ellipsis" >Causa: {{diag.causa}}</span>
+        <span class="ellipsis">Diagnostico: {{diag.diag}}</span>
+        <span  class="ellipsis">Padece: {{diag.padec}}</span>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+  <ion-footer>
+    <div id="medical-buttons">
+      <button style="background-color: transparent;" (click)="addDiag()"><ion-icon  name="add-circle"></ion-icon></button>
+      <button end style="background-color: transparent;float:right;" (click)="addAppointment()"><ion-icon  name="calendar"></ion-icon></button>
+    </div>
+  </ion-footer>
+
+
+</ion-content>

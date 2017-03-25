@@ -1,0 +1,20 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Diagnósticos</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addDiag()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let diag of diags | async" (click)="showOptions(diag.$key, diag.title)">
+      {{diag.title}}
+    </ion-item>
+  </ion-list>
+</ion-content>
