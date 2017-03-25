@@ -7,6 +7,7 @@ import {Page2} from '../pages/page2/page2';
 import {IntroAdmin} from '../pages/introAdmin/introAdmin';
 import {IntroMedico} from '../pages/pantalla-medico/pantalla-medico';
 import {AngularFire} from 'angularfire2';
+import {IntroPaciente} from "../pages/pantalla-paciente/pantalla-paciente";
 
 
 @Component({
@@ -29,6 +30,9 @@ export class MyApp {
       title: "page2",
       component: Page2
     }, {
+      title: "pagina paciente",
+      component: IntroPaciente
+    }, {
       title: "pagina medico",
       component: IntroMedico
     }];
@@ -50,7 +54,7 @@ export class MyApp {
           this.rootPage = IntroMedico;
           break;
         case "paciente":
-          this.rootPage = Page1;
+          this.rootPage = IntroPaciente;
           break;
       }
     }
