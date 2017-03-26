@@ -1,3 +1,4 @@
+import { ListadoCitasAdminPage } from './../pages/listado-citas-admin/listado-citas-admin';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -38,7 +39,8 @@ export const firebaseAuthConfig = {
     Page1,
     Page2,
 <<<<<<< HEAD
-    HistorialpacientePage
+    HistorialpacientePage,
+    ListadoCitasAdminPage,
 =======
     IntroMedico,
     IntroAdmin
@@ -55,7 +57,8 @@ export const firebaseAuthConfig = {
     Page1,
     Page2,
 <<<<<<< HEAD
-    HistorialpacientePage
+    HistorialpacientePage,
+    ListadoCitasAdminPage
 =======
     IntroMedico,
     IntroAdmin
