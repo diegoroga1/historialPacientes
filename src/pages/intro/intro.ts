@@ -1,7 +1,10 @@
 import {Component} from '@angular/core';
 import {NavController, MenuController, ToastController} from 'ionic-angular';
 import {Page1} from '../page1/page1';
-import {AngularFire} from 'angularfire2';
+import {IntroAdmin} from '../introAdmin/introAdmin';
+import {IntroMedico} from '../pantalla-medico/pantalla-medico';
+//import {IntroPaciente} from '../pantalla-medico/pantalla-medico';
+import {AngularFire, FirebaseObjectObservable} from 'angularfire2';
 
 /*
  Generated class for the Intro page.
@@ -15,6 +18,7 @@ import {AngularFire} from 'angularfire2';
 })
 export class IntroPage {
   saludo: string;
+  tipo: FirebaseObjectObservable<any>;
 
   constructor(public navCtrl: NavController, private firebase: AngularFire, public menu: MenuController, public toast: ToastController) {
     this.saludo = 'Login'
@@ -28,8 +32,22 @@ export class IntroPage {
         password: form.value.password
       }).then(
       (success) => {
+        this.tipo = this.firebase.database.object('/usuarios/' + success.uid + '/tipo', {preserveSnapshot: true});
         localStorage.setItem("user_uid", success.uid);
-        this.navCtrl.setRoot(Page1);
+        this.tipo.subscribe(snapshot => {
+          localStorage.setItem("user_type", snapshot.val());
+          switch (snapshot.val()) {
+            case "admin":
+              this.navCtrl.setRoot(IntroAdmin);
+              break;
+            case "medico":
+              this.navCtrl.setRoot(IntroMedico);
+              break;
+            case "paciente":
+              this.navCtrl.setRoot(Page1);
+              break;
+          }
+        });
       }
     ).catch(
       (error) => {

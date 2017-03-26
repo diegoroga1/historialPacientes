@@ -1,4 +1,9 @@
+<!--
+  Generated template for the Historialpaciente page.
 
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 <ion-header>
 
   <ion-navbar>
@@ -8,14 +13,14 @@
 </ion-header>
 
 
-<ion-content padding>
-  <h1 class="textoCentrado verde margenBot">Diagnósticos</h1>
+<ion-content padding class="home">
+  <h1 class="textoCentrado azul margenBot">Diagnósticos</h1>
   <ul class="listaDiagnosticos">
     <li class="elementoListaDiagnostico" *ngFor="let diagnostico of diagnosticos" (click)="accederDiagnostico()">
-      <p><span class="verde">Especialidad:</span><span> {{diagnostico["especialidad"]}}</span></p>
-      <p><span class="verde">Médico:</span><span> {{diagnostico.medico}}</span></p>
-      <p><span class="verde">Fecha:</span><span> {{diagnostico.fecha}}</span></p>
-      <p><span class="verde">Diagnóstico:</span><span> {{diagnostico.introduccion}}</span></p>
+      <p><span class="azul">Especialidad:</span><span> {{diagnostico["especialidad"]}}</span></p>
+      <p><span class="azul">Médico:</span><span> {{diagnostico.medico}}</span></p>
+      <p><span class="azul">Fecha:</span><span> {{diagnostico.fecha}}</span></p>
+      <p><span class="azul">Diagnóstico:</span><span> {{diagnostico.introduccion}}</span></p>
     </li>
   </ul>
 

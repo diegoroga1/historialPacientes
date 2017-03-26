@@ -4,13 +4,18 @@ import { MyApp } from './app.component';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import {IntroPage} from "../pages/intro/intro";
+<<<<<<< HEAD
 import { HistorialpacientePage } from "../pages/historialpaciente/historialpaciente";
 
+=======
+import {IntroMedico} from '../pages/pantalla-medico/pantalla-medico';
+>>>>>>> 2ecf354706ff7e6a0b1cf627a98cb5522de94637
 // Import the AF2 Module
 import { AngularFireModule,
   AuthMethods,
   AuthProviders
 } from 'angularfire2';
+import {IntroAdmin} from "../pages/introAdmin/introAdmin";
 
 
 export const firebaseConfig = {
@@ -32,7 +37,12 @@ export const firebaseAuthConfig = {
     IntroPage,
     Page1,
     Page2,
+<<<<<<< HEAD
     HistorialpacientePage
+=======
+    IntroMedico,
+    IntroAdmin
+>>>>>>> 2ecf354706ff7e6a0b1cf627a98cb5522de94637
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -44,7 +54,12 @@ export const firebaseAuthConfig = {
     IntroPage,
     Page1,
     Page2,
+<<<<<<< HEAD
     HistorialpacientePage
+=======
+    IntroMedico,
+    IntroAdmin
+>>>>>>> 2ecf354706ff7e6a0b1cf627a98cb5522de94637
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
