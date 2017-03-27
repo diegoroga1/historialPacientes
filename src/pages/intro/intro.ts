@@ -3,7 +3,7 @@ import {NavController, MenuController, ToastController} from 'ionic-angular';
 import {Page1} from '../page1/page1';
 import {IntroAdmin} from '../introAdmin/introAdmin';
 import {IntroMedico} from '../pantalla-medico/pantalla-medico';
-//import {IntroPaciente} from '../pantalla-medico/pantalla-medico';
+import {IntroPaciente} from '../pantalla-paciente/pantalla-paciente';
 import {AngularFire, FirebaseObjectObservable} from 'angularfire2';
 
 /*
@@ -44,7 +44,7 @@ export class IntroPage {
               this.navCtrl.setRoot(IntroMedico);
               break;
             case "paciente":
-              this.navCtrl.setRoot(Page1);
+              this.navCtrl.setRoot(IntroPaciente);
               break;
           }
         });

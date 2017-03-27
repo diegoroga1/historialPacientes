@@ -41,6 +41,7 @@ export class MyApp {
 
     localStorage.getItem("user_uid") ? this.user[0] = localStorage.getItem("user_uid") : this.user[0] = null;
 
+    // TODO: arreglar redirección al loguear
     if (this.user[0] == null) {
       //this.nav.setRoot(IntroPage);
       this.rootPage = IntroPage;
