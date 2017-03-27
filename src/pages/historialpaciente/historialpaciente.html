@@ -8,13 +8,15 @@
 
 
 <ion-content padding class="home">
+
   <h1 class="textoCentrado azul margenBot">Diagnósticos</h1>
   <ul class="listaDiagnosticos">
-    <li class="elementoListaDiagnostico" *ngFor="let diagnostico of diagnosticos" (click)="accederDiagnostico()">
+    <li class="elementoListaDiagnostico" *ngFor="let diagnostico of diagnosticos" (click)="accederDiagnostico(diagnostico.$key)">
       <p><span class="azul">Especialidad:</span><span> {{diagnostico["especialidad"]}}</span></p>
       <p><span class="azul">Médico:</span><span> {{diagnostico.medico}}</span></p>
       <p><span class="azul">Fecha:</span><span> {{diagnostico.fecha}}</span></p>
-      <p><span class="azul">Diagnóstico:</span><span> {{diagnostico.introduccion}}</span></p>
+      <p><span class="azul">Síntomas:</span><span> {{diagnostico.sintomas}}</span></p>
+      <p><span class="azul">Diagnóstico:</span><span> {{diagnostico.diagnosticoFinal}}</span></p>
     </li>
   </ul>
 

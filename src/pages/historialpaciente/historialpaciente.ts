@@ -1,58 +1,61 @@
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-/*
-  Generated class for the Historialpaciente page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-historialpaciente',
   templateUrl: 'historialpaciente.html'
 })
 export class HistorialpacientePage {
+  
+  diagnosticos;
+  claveDiagnostico;
+//uidpaciente = 'iORou2Gu6pU9iECbldeC7sZQYZg1'; 
+  diagObservable: FirebaseListObservable<any[]>;
+  constructor(public navCtrl: NavController, private af: AngularFire, public navParams: NavParams) {
+    
+    this.diagObservable = af.database.list('diagnosticos/' + localStorage.getItem("user_uid"), {
+      query:{
+        orderByChild:'fecha'
+      }
+    });
 
+    this.diagObservable.subscribe(aux => {
+        console.log(aux);
+        this.diagnosticos = aux;
+      });
+  }
 
-  diagnosticos = [
-                  {id: 1, 
-                  especialidad: 'Médico de cabecera', 
-                  medico: 'Antonio Pérez', 
-                  fecha: '12/02/17', 
-                  introduccion: 'El paciente se encontraba con dolores de garganta...'},
-                  {id: 2, 
-                  especialidad: 'Traumatología', 
-                  medico: 'Antonio Gutiérrez', 
-                  fecha: '24/11/16', 
-                  introduccion: 'Dolor en el fémur...'},
-                  {id: 3, 
-                  especialidad: 'Psicología', 
-                  medico: 'José García', 
-                  fecha: '17/06/16', 
-                  introduccion: 'Fuerte depresión y pensamientos negativos...'},
-                  {id: 4, 
-                  especialidad: 'Urgencias', 
-                  medico: 'María Dolores', 
-                  fecha: '10/05/15', 
-                  introduccion: 'Dolores estomacales producidos por...'},
-                  {id: 5, 
-                  especialidad: 'Nefrología', 
-                  medico: 'José Medina', 
-                  fecha: '12/03/15', 
-                  introduccion: 'Cólico nefrítico producido por piedras en el riñón y ...'},
-                  {id: 6, 
-                  especialidad: 'Alergología', 
-                  medico: 'Laura Silva', 
-                  fecha: '07/04/14', 
-                  introduccion: 'Molestias producidas por las siguientes alergias:...'}
-  ];
+  /*
+      voltear() {
 
+          if (Object.keys(this.diagnosticos).length < 2) {
+            return;
+          }
 
+          if (Object.keys(this.diagnosticos).length == 2) {
+              if (this.diagnosticos[1].fecha > this.diagnosticos[0].fecha) {
+                this.diagnosticos.reverse();      
+              }
+              return;
+          } 
+          
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-  accederDiagnostico() {
-    alert("Has accedido al diagnóstico");
+          if ((this.diagnosticos[Object.keys(this.diagnosticos).length - 1].fecha > this.diagnosticos[Object.keys(this.diagnosticos).length - 2].fecha) 
+          && (this.diagnosticos[Object.keys(this.diagnosticos).length - 2].fecha > this.diagnosticos[Object.keys(this.diagnosticos).length - 3].fecha)) {
+              this.diagnosticos.reverse();
+          } else {
+            var ultimoElemento = this.diagnosticos.pop();
+            this.diagnosticos.reverse();
+            this.diagnosticos.push(ultimoElemento);
+            this.diagnosticos.reverse();
+          }
+        }
+       */
+  
+  accederDiagnostico(keyDiag) {
+    alert("Has accedido al diagnóstico y su clave es: " + keyDiag);
   }
   
 }
+
