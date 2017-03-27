@@ -1,33 +1,52 @@
-<div padding>
-  <ion-segment [(ngModel)]="admin">
-    <ion-segment-button value="gescuenta">
-      Gestión cuenta
-    </ion-segment-button>
-    <ion-segment-button value="crearcuenta">
-      Crear cuenta
-    </ion-segment-button>
-    <ion-segment-button value="gescita">
-      Gestión cita
-    </ion-segment-button>
-    <ion-segment-button value="perfil">
-      Perfil
-    </ion-segment-button>
-  </ion-segment>
-</div>
+<ion-header>
 
-<div [ngSwitch]="admin">
-  <ion-list *ngSwitchCase="'gescuenta'">
-    <ion-item>
-      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-      <ion-list>
-        <ion-item *ngFor="let item of items">
-          {{ item }}
-        </ion-item>
-      </ion-list>
-    </ion-item>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+
+    </button>
+    <ion-title>
+      Historial pacientes
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-menu [content]="content" id="menu2">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Perfil</ion-title>
+      <img class="circle" src="//ionicframework.com/img/docs/spengler.jpg">
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <h1 menuClose ion-item *ngFor="let p of menus">
+        {{p.title}}
+      </h1>
+    </ion-list>
+
+    <ion-buttons>
+      <button ion-button class="logout" (click)="logOut()">LogOut</button>
+    </ion-buttons>
+  </ion-content>
+
+
+</ion-menu>
+
+
+<ion-content>
+  <ion-list class="principal" align="center" margin-top="80px">
+    <ion-buttons>
+      <button ion-button >Gestionar cuenta</button>
+    </ion-buttons>
+    <ion-buttons>
+      <button ion-button >Gestionar cita</button>
+    </ion-buttons>
   </ion-list>
 
-  <button ion-button *ngSwitchCase="'crearcuenta'" (click)="selectType()">Crear cuenta</button>
 
-</div>
+</ion-content>
 
+<ion-nav #content ></ion-nav>

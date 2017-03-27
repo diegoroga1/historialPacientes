@@ -1,0 +1,16 @@
+introAdmin ion-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 90px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center; }
+introAdmin .circle {
+  border-radius: 50%; }
+introAdmin ion-list {
+  display: block; }
+introAdmin .logout {
+  margin-top: 300px; }
+
+/*# sourceMappingURL=introAdmin.css.map */

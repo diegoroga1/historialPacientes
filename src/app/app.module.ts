@@ -3,15 +3,17 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
+import {IntroAdmin} from '../pages/introAdmin/introAdmin'
 import {IntroPage} from "../pages/intro/intro";
 import {IntroMedico} from '../pages/pantalla-medico/pantalla-medico';
+import {IntroPaciente} from "../pages/pantalla-paciente/pantalla-paciente";
+
 // Import the AF2 Module
 import { AngularFireModule,
   AuthMethods,
   AuthProviders
 } from 'angularfire2';
-import {IntroAdmin} from "../pages/introAdmin/introAdmin";
-import {IntroPaciente} from "../pages/pantalla-paciente/pantalla-paciente";
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCl1MSp5klkV1llJvw52GU3PzjOJjVYhq4",
