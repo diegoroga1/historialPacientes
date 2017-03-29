@@ -3,6 +3,8 @@ import { NavController, NavParams,ActionSheetController  } from 'ionic-angular';
 import {AngularFire,FirebaseListObservable} from 'angularfire2';
 import {CausaPage} from '../causa/causa';
 import {DiagnosticoPage} from '../diagnostico/diagnostico';
+import "rxjs/add/operator/map";
+
 /*
   Generated class for the VistaFichaPaciente page.
 
@@ -15,8 +17,14 @@ import {DiagnosticoPage} from '../diagnostico/diagnostico';
 })
 export class VistaFichaPacientePage {
   diags:FirebaseListObservable<any>;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController,public af:AngularFire) {
-    this.diags=af.database.list('/diags');
+    this.diags=af.database.list('/diags',{
+          }).map((array)=>array.reverse()) as FirebaseListObservable<any>;
+
+
+
+
 
   }
 
@@ -30,27 +38,10 @@ export class VistaFichaPacientePage {
     console.log("Añadir diagnostico");
     this.navCtrl.push(CausaPage);
   }
-  showOptions(diagId, diagTitle) {
-    let actionSheet = this.actionSheetCtrl.create({
-      title: 'What do you want to do?',
-      buttons: [
-        {
-          text: 'ver',
-          role: 'ver',
-          handler: () => {
-            this.navCtrl.push(DiagnosticoPage,{
-              diagId: diagId
-            });
-          }
-        },{
-          text: 'Cancelar',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
+  goToViewDiag(diagId){
+    this.navCtrl.push(DiagnosticoPage,{
+      diagId: diagId
     });
-    actionSheet.present();
   }
+
 }

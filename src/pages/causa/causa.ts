@@ -15,14 +15,19 @@ import {VistaFichaPacientePage} from '../vista-ficha-paciente/vista-ficha-pacien
 })
 export class CausaPage {
   diags: FirebaseListObservable<any>;
+
   campos = {
+    fecha: new Date().getDate() + '/'+(new Date().getMonth()+1)+'/'+new Date().getFullYear(),
+    hora:new Date().getHours()+ ':'+ new Date().getMinutes()
 
   };
-  constructor(public navCtrl: NavController, public navParams: NavParams, af: AngularFire) {
+  constructor(public navCtrl: NavController,public navParams: NavParams, af: AngularFire) {
     this.diags = af.database.list('/diags');
+
 
   }
   add(){
+
     this.diags.push(this.campos);
     this.navCtrl.push(VistaFichaPacientePage);
   }

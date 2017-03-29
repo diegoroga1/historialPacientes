@@ -6,23 +6,29 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>diagnostico</ion-title>
+  <ion-navbar color="primary">
+    <ion-title >Diagnóstico</ion-title>
 
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="home" padding>
   <ion-list>
     <div *ngFor="let diag of diags | async">
-      <ion-item *ngIf="diag.$key == diagId">
+      <ion-item-divider class="header-card" *ngIf="diag.$key == diagId">
         {{diag.title}}
-      </ion-item>
-      <ion-item text-wrap *ngIf="diag.$key == diagId">{{diag.causa}}</ion-item>
-      <ion-item text-wrap *ngIf="diag.$key == diagId">{{diag.padec}}</ion-item>
-      <ion-item text-wrap *ngIf="diag.$key == diagId">{{diag.diag}}</ion-item>
+      </ion-item-divider>
+      <hr *ngIf="diag.$key == diagId" class="style17"/>
+      <ion-label stacked *ngIf="diag.$key == diagId" ><strong>Causa:</strong> </ion-label>
+      <ion-item style="background-color: transparent;" no-lines text-wrap *ngIf="diag.$key == diagId">{{diag.causa}}</ion-item>
+      <ion-label stacked *ngIf="diag.$key == diagId" ><strong>Padecimiento:</strong> </ion-label>
+      <ion-item style="background-color: transparent;" no-lines text-wrap *ngIf="diag.$key == diagId">{{diag.padec}}</ion-item>
+      <ion-label stacked *ngIf="diag.$key == diagId" ><strong>Diagnóstico:</strong> </ion-label>
+      <ion-item style="background-color: transparent;" no-lines text-wrap *ngIf="diag.$key == diagId">{{diag.diag}}</ion-item>
+      <ion-label stacked *ngIf="diag.$key == diagId" ><strong>Fecha diagnóstico:</strong> </ion-label>
+      <ion-item style="background-color: transparent;" no-lines text-wrap *ngIf="diag.$key == diagId">{{diag.fecha}}</ion-item>
     </div>
   </ion-list>
 </ion-content>

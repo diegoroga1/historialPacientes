@@ -3,7 +3,17 @@
 
   <ion-navbar color="primary">
     <ion-title>Ficha paciente</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addDiag()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <button ion-button icon-only="" (click)="addAppointment()">
+        <ion-icon  name="calendar">
+        </ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+
 </ion-header>
 
 <ion-content padding class="home">
@@ -14,7 +24,7 @@
     <ion-grid id="grid-datos">
       <ion-row >
         <ion-col width-100>
-            <h3>Nombre: <span>Diego Rodriguez Garcia</span> </h3>
+            <h3>Nombre: <span>Pepito de Los Palotes</span> </h3>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -27,18 +37,18 @@
       </ion-row>
       <ion-row>
         <ion-col width-50>
-            <h3>Nacionalidad: <span>Español</span></h3>
+            <h3>Nacionalidad: <span>Mongolia</span></h3>
         </ion-col>
         <ion-col width-50>
-          <h3>Fecha nacimiento: <span>06/10/1993</span></h3>
+          <h3>Fecha nacimiento: <span>10/10/1993</span></h3>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col width-50>
-            <h3>DNI: <span>78539177L</span></h3>
+            <h3>DNI: <span>77777777Ñ</span></h3>
         </ion-col>
         <ion-col width-50>
-          <h3>Telefono: <span>677151209</span></h3>
+          <h3>Telefono: <span>677698969</span></h3>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -48,15 +58,18 @@
       </ion-row>
     </ion-grid>
   </div>
-  <hr>
+  <hr class="style17">
   <ion-label id="label-diags">
     <h2>Diágnosticos</h2>
   </ion-label>
-  <hr>
+  <hr class="style14">
   <ion-list id="diags-list" *ngFor="let diag of diags |async">
-    <ion-card (click)="showOptions(diag.$key, diag.title)">
+    <ion-card (click)="goToViewDiag(diag.$key)">
       <ion-card-header>
-        {{diag.title}}
+        <h1>{{diag.title}}</h1>
+        <h4 style="float:right;">{{diag.fecha}}</h4>
+
+
       </ion-card-header>
       <ion-card-content>
         <span class="ellipsis" >Causa: {{diag.causa}}</span>
@@ -67,8 +80,7 @@
   </ion-list>
   <ion-footer>
     <div id="medical-buttons">
-      <button style="background-color: transparent;" (click)="addDiag()"><ion-icon  name="add-circle"></ion-icon></button>
-      <button end style="background-color: transparent;float:right;" (click)="addAppointment()"><ion-icon  name="calendar"></ion-icon></button>
+
     </div>
   </ion-footer>
 

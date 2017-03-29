@@ -67,76 +67,7 @@ export class NewPage {
      prompt.present();*/
   }
 
-  showOptions(diagId, diagTitle) {
-    let actionSheet = this.actionSheetCtrl.create({
-      title: 'What do you want to do?',
-      buttons: [
-        {
-          text: 'ver',
-          role: 'ver',
-          handler: () => {
-            this.navCtrl.push(DiagnosticoPage,{
-              diagId: diagId
-            });
-          }
-        },
-        {
-          text: 'Borrar',
-          role: 'destructive',
-          handler: () => {
-            this.removeDiag(diagId);
-          }
-        },{
-          text: 'Modificar',
-          handler: () => {
-            this.updateDiag(diagId, diagTitle);
-          }
-        },{
-          text: 'Cancelar',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
-    });
-    actionSheet.present();
-  }
 
-  updateDiag(diagId, diagTitle){
-    let prompt = this.alertCtrl.create({
-      title: 'Song Name',
-      message: "Modifica el diagnóstico",
-      inputs: [
-        {
-          name: 'title',
-          placeholder: 'Title',
-          value: diagTitle
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Save',
-          handler: data => {
-            this.diags.update(diagId, {
-              title: data.title
-            });
-          }
-        }
-      ]
-    });
-    prompt.present();
-  }
-
-  removeDiag(diagId: string){
-    this.diags.remove(diagId);
-  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewPage');

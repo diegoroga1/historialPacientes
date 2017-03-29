@@ -6,31 +6,31 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Nuevo Diagnóstico</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <form (ngSubmit)="add()">
-    <ion-item>
-      <ion-label>Titulo</ion-label>
+<ion-content class="home" padding>
+  <form (ngSubmit)="add()" id="form-new-diag">
+    <ion-item class="transparent">
+      <ion-label stacked>Titulo</ion-label>
       <ion-input type="text" [(ngModel)]="campos.title" name="title"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label>Causa</ion-label>
+    <ion-item class="transparent">
+      <ion-label stacked>Causa</ion-label>
       <ion-textarea [(ngModel)]="campos.causa" name="causa"></ion-textarea>
     </ion-item>
-    <ion-item>
-      <ion-label>Padecimiento</ion-label>
+    <ion-item class="transparent">
+      <ion-label stacked>Padecimiento</ion-label>
       <ion-textarea [(ngModel)]="campos.padec" name="padecimiento"></ion-textarea>
     </ion-item>
-    <ion-item>
-      <ion-label>Diagnóstico</ion-label>
+    <ion-item class="transparent">
+      <ion-label stacked>Diagnóstico</ion-label>
       <ion-textarea [(ngModel)]="campos.diag" name="diagnostico"></ion-textarea>
     </ion-item>
-    <button ion-button type="submit" block>Crear</button>
+    <button class="button-width" ion-button outline type="submit" block>Crear</button>
   </form>
 </ion-content>
