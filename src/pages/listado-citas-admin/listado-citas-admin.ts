@@ -1,3 +1,4 @@
+import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -7,7 +8,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'listado-citas-admin.html'
 })
 export class ListadoCitasAdminPage {
-
+/*
     citas = [
                 {id: 1,
                 paciente: 'Pepe Pérez',
@@ -45,13 +46,25 @@ export class ListadoCitasAdminPage {
                 medico: 'Laura Silva', 
                 fecha: '07/04/14', 
                 prioridad: 'Alta'}
-  ];
+  ]; */
   
+  citas;
+  //uidpaciente = 'iORou2Gu6pU9iECbldeC7sZQYZg1'; 
+  citaObservable: FirebaseListObservable<any[]>;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-  
-  accederCita() {
-    alert("Has accedido a la cita");
-  }
+  constructor(public navCtrl: NavController, private af: AngularFire, public navParams: NavParams) {
 
+    this.citaObservable = af.database.list('citas/');
+
+    this.citaObservable.subscribe(aux => {
+        console.log(aux);
+        this.citas = aux;
+    });
+  }
+  
+  accederCita(keyDiag, uidMedico, uidPaciente) {
+    alert("Has accedido a la cita y su clave es: " + keyDiag + " uid del Médico: " + uidMedico + 
+    " La uid del paciente es: " + uidPaciente );
+  }
+  
 }

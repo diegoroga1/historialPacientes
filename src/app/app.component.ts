@@ -1,3 +1,5 @@
+import { ListadoCitasAdminPage } from './../pages/listado-citas-admin/listado-citas-admin';
+import { HistorialpacientePage } from './../pages/historialpaciente/historialpaciente';
 import {Component, ViewChild} from '@angular/core';
 import {Platform, NavController} from 'ionic-angular';
 import {Splashscreen} from 'ionic-native';
@@ -50,7 +52,7 @@ export class MyApp {
           this.rootPage = IntroMedico;
           break;
         case "paciente":
-          this.rootPage = Page1;
+          this.rootPage = ListadoCitasAdminPage;
           break;
       }
     }

@@ -1,19 +1,6 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>listadoCitasAdmin</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
-
-<ion-header>
-
-  <ion-navbar>
     <ion-title>Listado de citas pendientes</ion-title>
   </ion-navbar>
 
@@ -23,11 +10,9 @@
 <ion-content padding class="home">
   <h1 class="textoCentrado azul margenBot">Listado de citas pendientes</h1>
   <ul class="listaCitas">
-    <li class="elementoListaCitas" *ngFor="let cita of citas" (click)="accederCita()">
-      <p><span class="azul">Paciente:</span><span> {{cita["paciente"]}}</span></p>
-      <p><span class="azul">Médico que lo demanda:</span><span> {{cita.medico}}</span></p>
-      <p><span class="azul">Especialidad demandada:</span><span> {{cita.especialidadDemandada}}</span></p>
-      <p><span class="azul">Prioridad:</span><span> {{cita.prioridad}}</span></p>
+    <li class="elementoListaCitas" *ngFor="let cita of citas" (click)="accederCita(cita.$key, cita.uidMedico, cita.uidPaciente)">
+      <p><span class="azul negrita">Título:</span><span class="negrita"> {{cita["title"]}}</span></p>
+      <p><span class="azul">Especialidad demandada:</span><span> {{cita.espec}}</span></p>
       <p><span class="azul">Fecha de la demanda:</span><span> {{cita.fecha}}</span></p>
     </li>
   </ul>
