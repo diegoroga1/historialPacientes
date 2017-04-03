@@ -5,6 +5,7 @@ import {PedircitaPage} from "../pedircita/pedircita";
 //import Auth = firebase.auth.Auth;
 import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
 import {CitasPendientesPage} from "../citas-pendientes/citas-pendientes";
+import {HistorialpacientePage} from "../historialpaciente/historialpaciente";
 /*
  Generated class for the PantallaPaciente page.
 
@@ -55,6 +56,10 @@ export class IntroPaciente {
   }
   irAPerfil(){
     console.log("ir a perfil");
+  }
+
+  verFichaPaciente(){
+    this.navCtrl.push(HistorialpacientePage);
   }
 
 }

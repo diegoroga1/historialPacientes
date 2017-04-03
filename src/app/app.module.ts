@@ -1,3 +1,4 @@
+import { ListadoCitasAdminPage } from './../pages/listado-citas-admin/listado-citas-admin';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -14,12 +15,15 @@ import {DiagnosticoPage} from '../pages/diagnostico/diagnostico';
 import {PedircitaPage} from "../pages/pedircita/pedircita";
 import {CitasPendientesMedicoPage} from "../pages/citas-pendientes-medico/citas-pendientes-medico";
 import {CitasPendientesPage} from "../pages/citas-pendientes/citas-pendientes";
+import { HistorialpacientePage } from "../pages/historialpaciente/historialpaciente";
+
 
 // Import the AF2 Module
 import { AngularFireModule,
   AuthMethods,
   AuthProviders
 } from 'angularfire2';
+
 
 
 export const firebaseConfig = {
@@ -41,6 +45,8 @@ export const firebaseAuthConfig = {
     IntroPage,
     Page1,
     Page2,
+    HistorialpacientePage,
+    ListadoCitasAdminPage,
     IntroMedico,
     IntroAdmin,
     IntroPaciente,
@@ -62,6 +68,8 @@ export const firebaseAuthConfig = {
     IntroPage,
     Page1,
     Page2,
+    HistorialpacientePage,
+    ListadoCitasAdminPage,
     IntroMedico,
     IntroAdmin,
     IntroPaciente,
