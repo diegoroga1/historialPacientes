@@ -21,11 +21,6 @@ export class VistaFichaPacientePage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController,public af:AngularFire) {
     this.diags=af.database.list('/diags',{
           }).map((array)=>array.reverse()) as FirebaseListObservable<any>;
-
-
-
-
-
   }
 
   ionViewDidLoad() {

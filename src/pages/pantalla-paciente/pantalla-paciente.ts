@@ -6,6 +6,7 @@ import {PedircitaPage} from "../pedircita/pedircita";
 import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
 import {CitasPendientesPage} from "../citas-pendientes/citas-pendientes";
 import {HistorialpacientePage} from "../historialpaciente/historialpaciente";
+import {AngularFire} from "angularfire2";
 /*
  Generated class for the PantallaPaciente page.
 
@@ -21,8 +22,10 @@ export class IntroPaciente {
   user:any;
   Uid = localStorage.getItem("user_uid");
   menuItems=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.user='Hector Gonzalez Feo';
+  constructor(public navCtrl: NavController, public navParams: NavParams, firebase: AngularFire) {
+    firebase.database.object('/usuarios/'+this.Uid,{preserveSnapshot: true}).subscribe(info => {
+      this.user = info.val().nombre;
+    });
     this.menuItems=[
       'Perfil',
       'Pacientes',
