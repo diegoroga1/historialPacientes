@@ -1,12 +1,9 @@
 import { Component,ViewChild } from '@angular/core';
 import { Nav,NavController, NavParams } from 'ionic-angular';
 import{ VistaFichaPacientePage} from '../vista-ficha-paciente/vista-ficha-paciente';
-/*
-  Generated class for the PantallaMedico page.
+import {CitasPendientesMedicoPage} from "../citas-pendientes-medico/citas-pendientes-medico";
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+
 @Component({
   selector: 'page-pantalla-medico',
   templateUrl: 'pantalla-medico.html',
@@ -35,7 +32,7 @@ export class IntroMedico {
     this.navCtrl.push(VistaFichaPacientePage);
   }
   irACitasPendientes(){
-    console.log("Ir a Citas pendientes");
+    this.navCtrl.push(CitasPendientesMedicoPage);
   }
   irAListadoMedicos(){
     console.log("Ir a Listado Medicos");
