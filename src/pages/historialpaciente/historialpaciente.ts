@@ -13,11 +13,7 @@ export class HistorialpacientePage {
   diagObservable: FirebaseListObservable<any[]>;
   constructor(public navCtrl: NavController, private af: AngularFire, public navParams: NavParams) {
 
-    this.diagObservable = af.database.list('diagnosticos/' + localStorage.getItem("user_uid"), {
-      query:{
-        orderByChild:'fecha'
-      }
-    });
+    this.diagObservable = af.database.list('diagnosticos/' + localStorage.getItem("user_uid"));
 
     this.diagObservable.subscribe(aux => {
         this.diagnosticos = aux;
