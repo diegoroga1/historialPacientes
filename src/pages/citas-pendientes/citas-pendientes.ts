@@ -26,7 +26,8 @@ export class CitasPendientesPage {
       citas.forEach(cita => {
         var tempInfo: any = {};
         this.firebase.database.object('/citas/' + cita.key, {preserveSnapshot: true}).subscribe(infoCita => {
-          this.firebase.database.object('/usuarios/' + infoCita.val().uidMedico, {preserveSnapshot: true}).subscribe(infoMedico => {
+          console.log(infoCita.val());
+          this.firebase.database.object('/usuarios/' + infoCita.val().medico, {preserveSnapshot: true}).subscribe(infoMedico => {
             tempInfo = infoCita.val();
             tempInfo.nombreMedico = infoMedico.val().nombre;
             this.citasPendientes.push(tempInfo);
