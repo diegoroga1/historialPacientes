@@ -13,6 +13,7 @@ import { AngularFireModule,
   AuthMethods,
   AuthProviders
 } from 'angularfire2';
+import {PedircitaPage} from "../pages/pedircita/pedircita";
 
 
 export const firebaseConfig = {
@@ -36,7 +37,8 @@ export const firebaseAuthConfig = {
     Page2,
     IntroMedico,
     IntroAdmin,
-    IntroPaciente
+    IntroPaciente,
+    PedircitaPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -50,7 +52,8 @@ export const firebaseAuthConfig = {
     Page2,
     IntroMedico,
     IntroAdmin,
-    IntroPaciente
+    IntroPaciente,
+    PedircitaPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
