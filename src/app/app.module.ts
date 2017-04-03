@@ -13,6 +13,7 @@ import {CausaPage} from '../pages/causa/causa';
 import {DiagnosticoPage} from '../pages/diagnostico/diagnostico';
 import {PedircitaPage} from "../pages/pedircita/pedircita";
 import {CitasPendientesMedicoPage} from "../pages/citas-pendientes-medico/citas-pendientes-medico";
+import {CitasPendientesPage} from "../pages/citas-pendientes/citas-pendientes";
 
 // Import the AF2 Module
 import { AngularFireModule,
@@ -48,7 +49,8 @@ export const firebaseAuthConfig = {
     NewPage,
     DiagnosticoPage,
     PedircitaPage,
-    CitasPendientesMedicoPage
+    CitasPendientesMedicoPage,
+    CitasPendientesPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -68,7 +70,8 @@ export const firebaseAuthConfig = {
     NewPage,
     DiagnosticoPage,
     PedircitaPage,
-    CitasPendientesMedicoPage
+    CitasPendientesMedicoPage,
+    CitasPendientesPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

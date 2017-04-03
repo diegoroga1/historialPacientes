@@ -3,6 +3,8 @@ import { Nav,NavController, NavParams } from 'ionic-angular';
 //import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
 import {PedircitaPage} from "../pedircita/pedircita";
 //import Auth = firebase.auth.Auth;
+import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
+import {CitasPendientesPage} from "../citas-pendientes/citas-pendientes";
 /*
  Generated class for the PantallaPaciente page.
 
@@ -43,6 +45,7 @@ export class IntroPaciente {
   }
   irACitasPendientes(){
     console.log("Ir a Citas pendientes");
+    this.navCtrl.push(CitasPendientesPage);
   }
   irAListadoMedicos(){
     console.log("Ir a Listado Medicos");
