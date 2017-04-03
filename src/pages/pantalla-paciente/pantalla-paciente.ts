@@ -1,6 +1,8 @@
 import { Component,ViewChild } from '@angular/core';
 import { Nav,NavController, NavParams } from 'ionic-angular';
-import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
+//import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
+import {PedircitaPage} from "../pedircita/pedircita";
+//import Auth = firebase.auth.Auth;
 /*
  Generated class for the PantallaPaciente page.
 
@@ -14,6 +16,7 @@ import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
 export class IntroPaciente {
   @ViewChild(Nav) nav: Nav;
   user:any;
+  Uid = localStorage.getItem("user_uid");
   menuItems=[];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.user='Hector Gonzalez Feo';
@@ -29,6 +32,11 @@ export class IntroPaciente {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PantallaPacientePage');
 
+  }
+  irAPedirCita(){
+    this.navCtrl.push(PedircitaPage,{
+      userUid: this.Uid
+    });
   }
   buscarPaciente(){
     console.log("Ir a buscar paciente");

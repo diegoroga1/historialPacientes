@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>PedirCita</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="home">
+  <form class="transparent" (ngSubmit)="add()">
+    <ion-label stacked>Titulo:</ion-label>
+    <ion-item>
+      <ion-textarea class="transparent" [(ngModel)]="campos.title" name="title"></ion-textarea>
+    </ion-item>
+    <ion-label stacked>Médico:</ion-label>
+    <ion-item>
+      <ion-select class="transparent" [(ngModel)]="campos.medico" name="medico">
+
+
+
+        <div *ngFor="let nombre of nombres ">
+          <ion-option  [value]="nombre.uidMedico">{{nombre.nombre}}</ion-option>
+        </div>
+
+
+
+
+
+      </ion-select>
+    </ion-item>
+    <ion-label stacked>Especialidad:</ion-label>
+    <ion-item>
+      <ion-textarea class="transparent" [(ngModel)]="campos.espec" name="especialidad"></ion-textarea>
+    </ion-item>
+    <button ion-button class="button-width" type="submit" block outline>Crear</button>
+  </form>
+</ion-content>
