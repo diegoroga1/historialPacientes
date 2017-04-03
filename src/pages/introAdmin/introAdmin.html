@@ -32,20 +32,27 @@
     </ion-buttons>
   </ion-content>
 
-
 </ion-menu>
 
-
-<ion-content>
+<ion-content padding class="home">
   <ion-list class="principal" align="center" margin-top="80px">
     <ion-buttons>
-      <button ion-button >Gestionar cuenta</button>
+      <button ion-button class="button-width" outline>Gestionar cuenta</button>
     </ion-buttons>
     <ion-buttons>
-      <button ion-button >Gestionar cita</button>
+      <button ion-button class="button-width" outline (click)="buscar()">Gestionar cita</button>
     </ion-buttons>
   </ion-list>
+  <div id="logo">
+    <img src="assets/images/logo.png" alt="" class="logo">
+  </div>
 
+  <ion-searchbar></ion-searchbar>
+  <ion-list>
+   <ion-item *ngFor="let item of arraypacientes">
+      {{item.name}}
+    </ion-item>>
+  </ion-list>
 
 </ion-content>
 
