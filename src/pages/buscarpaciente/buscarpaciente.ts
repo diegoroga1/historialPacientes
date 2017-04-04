@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {FirebaseListObservable, AngularFire} from "angularfire2";
+import {VistaFichaPacientePage} from "../vista-ficha-paciente/vista-ficha-paciente";
 
 /*
   Generated class for the Buscarpaciente page.
@@ -30,8 +31,8 @@ export class BuscarpacientePage {
   }
 
 
-  pasarNombrePaciente(){
-
+  pasarNombrePaciente(uid){
+    this.navCtrl.push(VistaFichaPacientePage,{uid:uid});
   }
 
 
@@ -41,7 +42,10 @@ export class BuscarpacientePage {
       .subscribe(snapshots=>{
         snapshots.forEach(snapshot => {
           if(snapshot.val().tipo =='paciente'){
-            this.arraypacientes[this.i]=snapshot.val().nombre;
+            this.arraypacientes[this.i]={
+              nombre: snapshot.val().nombre,
+              id: snapshot.key
+            }
             this.i=this.i+1;
             console.log(this.arraypacientes);
           }

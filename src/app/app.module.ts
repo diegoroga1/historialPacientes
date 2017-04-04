@@ -8,10 +8,7 @@ import {IntroAdmin} from '../pages/introAdmin/introAdmin'
 import {IntroPage} from "../pages/intro/intro";
 import {IntroMedico} from '../pages/pantalla-medico/pantalla-medico';
 import {IntroPaciente} from "../pages/pantalla-paciente/pantalla-paciente";
-<<<<<<< HEAD
 import {BuscarpacientePage} from "../pages/buscarpaciente/buscarpaciente";
-
-=======
 import {VistaFichaPacientePage} from '../pages/vista-ficha-paciente/vista-ficha-paciente';
 import {NewPage} from '../pages/new/new';
 import {CausaPage} from '../pages/causa/causa';
@@ -20,7 +17,7 @@ import {PedircitaPage} from "../pages/pedircita/pedircita";
 import {CitasPendientesMedicoPage} from "../pages/citas-pendientes-medico/citas-pendientes-medico";
 import {CitasPendientesPage} from "../pages/citas-pendientes/citas-pendientes";
 import { HistorialpacientePage } from "../pages/historialpaciente/historialpaciente";
->>>>>>> ba46aa407e194151988af2cfe2db816d68b499d5
+
 
 
 // Import the AF2 Module
@@ -55,9 +52,7 @@ export const firebaseAuthConfig = {
     IntroMedico,
     IntroAdmin,
     IntroPaciente,
-<<<<<<< HEAD
-    BuscarpacientePage
-=======
+    BuscarpacientePage,
     VistaFichaPacientePage,
     CausaPage,
     NewPage,
@@ -65,7 +60,6 @@ export const firebaseAuthConfig = {
     PedircitaPage,
     CitasPendientesMedicoPage,
     CitasPendientesPage
->>>>>>> ba46aa407e194151988af2cfe2db816d68b499d5
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -82,9 +76,7 @@ export const firebaseAuthConfig = {
     IntroMedico,
     IntroAdmin,
     IntroPaciente,
-<<<<<<< HEAD
-    BuscarpacientePage
-=======
+    BuscarpacientePage,
     VistaFichaPacientePage,
     CausaPage,
     NewPage,
@@ -92,7 +84,6 @@ export const firebaseAuthConfig = {
     PedircitaPage,
     CitasPendientesMedicoPage,
     CitasPendientesPage
->>>>>>> ba46aa407e194151988af2cfe2db816d68b499d5
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
