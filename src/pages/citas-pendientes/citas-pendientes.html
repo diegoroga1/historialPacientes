@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button="" menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Citas pendientes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+
+  <ion-list>
+    <ion-card *ngFor="let cita of citasPendientes">
+      <ion-card-content>
+        <!-- Add card content here! -->
+        Tiene cita con {{cita.nombreMedico}} el día {{cita.fecha}}
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+  <div class="no-citas-div">
+    <h2 class="no-citas" style="color: white" *ngIf="citasPendientes.length == 0">No tiene citas pendientes</h2>
+  </div>
+
+  <div id="logo">
+    <img src="assets/images/logo.png" alt="" class="logo">
+  </div>
+
+</ion-content>

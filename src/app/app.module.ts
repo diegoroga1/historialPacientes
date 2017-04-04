@@ -1,3 +1,4 @@
+import { ListadoCitasAdminPage } from './../pages/listado-citas-admin/listado-citas-admin';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -7,8 +8,19 @@ import {IntroAdmin} from '../pages/introAdmin/introAdmin'
 import {IntroPage} from "../pages/intro/intro";
 import {IntroMedico} from '../pages/pantalla-medico/pantalla-medico';
 import {IntroPaciente} from "../pages/pantalla-paciente/pantalla-paciente";
+<<<<<<< HEAD
 import {BuscarpacientePage} from "../pages/buscarpaciente/buscarpaciente";
 
+=======
+import {VistaFichaPacientePage} from '../pages/vista-ficha-paciente/vista-ficha-paciente';
+import {NewPage} from '../pages/new/new';
+import {CausaPage} from '../pages/causa/causa';
+import {DiagnosticoPage} from '../pages/diagnostico/diagnostico';
+import {PedircitaPage} from "../pages/pedircita/pedircita";
+import {CitasPendientesMedicoPage} from "../pages/citas-pendientes-medico/citas-pendientes-medico";
+import {CitasPendientesPage} from "../pages/citas-pendientes/citas-pendientes";
+import { HistorialpacientePage } from "../pages/historialpaciente/historialpaciente";
+>>>>>>> ba46aa407e194151988af2cfe2db816d68b499d5
 
 
 // Import the AF2 Module
@@ -16,6 +28,7 @@ import { AngularFireModule,
   AuthMethods,
   AuthProviders
 } from 'angularfire2';
+
 
 
 export const firebaseConfig = {
@@ -37,10 +50,22 @@ export const firebaseAuthConfig = {
     IntroPage,
     Page1,
     Page2,
+    HistorialpacientePage,
+    ListadoCitasAdminPage,
     IntroMedico,
     IntroAdmin,
     IntroPaciente,
+<<<<<<< HEAD
     BuscarpacientePage
+=======
+    VistaFichaPacientePage,
+    CausaPage,
+    NewPage,
+    DiagnosticoPage,
+    PedircitaPage,
+    CitasPendientesMedicoPage,
+    CitasPendientesPage
+>>>>>>> ba46aa407e194151988af2cfe2db816d68b499d5
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -52,10 +77,22 @@ export const firebaseAuthConfig = {
     IntroPage,
     Page1,
     Page2,
+    HistorialpacientePage,
+    ListadoCitasAdminPage,
     IntroMedico,
     IntroAdmin,
     IntroPaciente,
+<<<<<<< HEAD
     BuscarpacientePage
+=======
+    VistaFichaPacientePage,
+    CausaPage,
+    NewPage,
+    DiagnosticoPage,
+    PedircitaPage,
+    CitasPendientesMedicoPage,
+    CitasPendientesPage
+>>>>>>> ba46aa407e194151988af2cfe2db816d68b499d5
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

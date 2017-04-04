@@ -1,0 +1,39 @@
+page-listado-citas-admin {
+    .azul {
+        color: #387ef5 !important;
+    }
+    .listaCitas {
+        list-style-type: none;
+        margin: 0;
+        padding: 20px;
+        background-color: #DDEEF9; 
+        border-bottom: 1px solid #2388c7;
+    }
+    .elementoListaCitas {        
+        border-top: 1px solid #2388c7;
+    }
+    .textoCentrado {
+        text-align: center;
+    }
+    .margenBot {
+        margin-bottom: 10px;
+    }
+    .home{
+        background: rgba(147,206,222,1);
+        background: -moz-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 22%, rgba(121,191,211,1) 63%, rgba(117,189,209,1) 69%, rgba(73,165,191,1) 78%);
+        background: -webkit-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 22%, rgba(121,191,211,1) 63%, rgba(117,189,209,1) 69%, rgba(73,165,191,1) 78%);
+        background: -o-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 22%, rgba(121,191,211,1) 63%, rgba(117,189,209,1) 69%, rgba(73,165,191,1) 78%);
+        background: -ms-linear-gradient(top, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 22%, rgba(121,191,211,1) 63%, rgba(117,189,209,1) 69%, rgba(73,165,191,1) 78%);
+        background: linear-gradient(to bottom, rgba(147,206,222,1) 0%, rgba(147,206,222,1) 22%, rgba(121,191,211,1) 63%, rgba(117,189,209,1) 69%, rgba(73,165,191,1) 78%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=0 );
+    }
+    p {
+        font-size:120%;
+        line-height: 25px;
+    }
+
+    .negrita {
+        font-weight: 500;
+    }
+
+}

@@ -1,0 +1,27 @@
+page-historialpaciente .azul {
+  color: #387ef5 !important; }
+page-historialpaciente .listaDiagnosticos {
+  list-style-type: none;
+  margin: 0;
+  padding: 20px;
+  background-color: #DDEEF9;
+  border-bottom: 1px solid #2388c7; }
+page-historialpaciente .elementoListaDiagnostico {
+  border-top: 1px solid #2388c7; }
+page-historialpaciente .textoCentrado {
+  text-align: center; }
+page-historialpaciente .margenBot {
+  margin-bottom: 10px; }
+page-historialpaciente .home {
+  background: #93cede;
+  background: -moz-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 63%, #75bdd1 69%, #49a5bf 78%);
+  background: -webkit-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 63%, #75bdd1 69%, #49a5bf 78%);
+  background: -o-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 63%, #75bdd1 69%, #49a5bf 78%);
+  background: -ms-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 63%, #75bdd1 69%, #49a5bf 78%);
+  background: linear-gradient(to bottom, #93cede 0%, #93cede 22%, #79bfd3 63%, #75bdd1 69%, #49a5bf 78%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=0 ); }
+page-historialpaciente p {
+  font-size: 120%;
+  line-height: 25px; }
+
+/*# sourceMappingURL=historialpaciente.css.map */

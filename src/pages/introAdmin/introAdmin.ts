@@ -1,3 +1,4 @@
+import { ListadoCitasAdminPage } from './../listado-citas-admin/listado-citas-admin';
 import { Component } from '@angular/core';
 import {NavController, ToastController, MenuController, NavParams, AlertController} from "ionic-angular";
 import {AngularFire} from "angularfire2";
@@ -140,5 +141,8 @@ export class IntroAdmin {
     );
   }
 
+  accederCitasPendientes() {
+    this.navCtrl.push(ListadoCitasAdminPage);
+  }
 
 }

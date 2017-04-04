@@ -1,23 +1,28 @@
 import { Component,ViewChild } from '@angular/core';
 import { Nav,NavController, NavParams } from 'ionic-angular';
+
 import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
 import {BuscarpacientePage} from "../buscarpaciente/buscarpaciente";
-/*
-  Generated class for the PantallaMedico page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+
+import{ VistaFichaPacientePage} from '../vista-ficha-paciente/vista-ficha-paciente';
+import {CitasPendientesMedicoPage} from "../citas-pendientes-medico/citas-pendientes-medico";
+import {AngularFire} from "angularfire2";
+
+
 @Component({
   selector: 'page-pantalla-medico',
   templateUrl: 'pantalla-medico.html',
 })
 export class IntroMedico {
   @ViewChild(Nav) nav: Nav;
+  Uid = localStorage.getItem("user_uid");
   user:any;
   menuItems=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.user='Diego Rodriguez Garcia';
+  constructor(public navCtrl: NavController, public navParams: NavParams, firebase: AngularFire) {
+    firebase.database.object('/usuarios/'+this.Uid,{preserveSnapshot: true}).subscribe(info => {
+      this.user = info.val().nombre;
+    });
     this.menuItems=[
       'Perfil',
       'Pacientes',
@@ -32,11 +37,12 @@ export class IntroMedico {
 
   }
   buscarPaciente(){
-
       this.navCtrl.push(BuscarpacientePage);
+
+
   }
   irACitasPendientes(){
-    console.log("Ir a Citas pendientes");
+    this.navCtrl.push(CitasPendientesMedicoPage);
   }
   irAListadoMedicos(){
     console.log("Ir a Listado Medicos");
