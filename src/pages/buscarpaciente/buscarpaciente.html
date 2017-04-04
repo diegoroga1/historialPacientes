@@ -1,0 +1,11 @@
+
+<ion-content padding class="home">
+  <ion-searchbar (ionInput)="getItems($event)" ></ion-searchbar>
+  <ion-list>
+    <div *ngFor="let p of arraypacientes">
+      <ion-item >
+        <button ion-button class="button-width" outline (click)="pasarNombrePaciente()">{{p}}</button>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

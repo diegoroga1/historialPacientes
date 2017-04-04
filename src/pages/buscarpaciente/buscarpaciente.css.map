@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGI,yBAAK;EACH,UAAU,EAAE,OAAmB;EAC/B,UAAU,EAAE,yFAAoJ;EAChK,UAAU,EAAE,4FAAuJ;EACnK,UAAU,EAAE,uFAAkJ;EAC9J,UAAU,EAAE,wFAAmJ;EAC/J,UAAU,EAAE,0FAAqJ;EACjK,MAAM,EAAE,4GAA4G;AAIxH,iCAAa;EACX,KAAK,EAAE,IAAI;EACX,gBAAgB,EAAE,KAAK",
+"sources": ["buscarpaciente.scss"],
+"names": [],
+"file": "buscarpaciente.css"
+}

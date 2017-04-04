@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import {NavController, ToastController, MenuController, NavParams} from "ionic-angular";
-import {AngularFire, FirebaseListObservable} from "angularfire2";
+import {NavController, ToastController, MenuController, NavParams, AlertController} from "ionic-angular";
+import {AngularFire} from "angularfire2";
 import {IntroPage} from "../intro/intro";
-import { foundService } from "../../providers/providers";
+
 
 
 @Component({
@@ -14,18 +14,14 @@ export class IntroAdmin {
   rootPage: any = IntroAdmin;
 
   menus: Array<{title: string}>;
-  //pacientes: FirebaseListObservable<any>;
-  pacientes: any;
-  arraypacientes = [];
 
 
   constructor(public navCtrl: NavController,
               private firebase: AngularFire,
               public toast: ToastController,
               public menu: MenuController,
-              public af: AngularFire,
-              private foundservice: foundService,
-              private navParams: NavParams ) {
+              private navParams: NavParams,
+              public alertCtrl: AlertController) {
 
     this.menus = [{
       title: 'Nombre: '
@@ -36,25 +32,99 @@ export class IntroAdmin {
     },{
       title: 'Dirección: '
     }];
-
-
-    //this.pacientes = af.database.list('/usuarios')
-
   }
 
-  pac(){
-    let selectedPaciente = this.navParams.data;
-    this.foundservice.getPacientesData(selectedPaciente).subscribe(data => {
-      this.arraypacientes = data;
+  //Selecciona el tipo de usuario
+  selectType() {
+    let popup = this.alertCtrl.create();
+    popup.setTitle('Elija el tipo de usuario');
+    popup.addInput({
+      type: 'radio',
+      label: 'Administrador',
+      value: 'admin',
+      checked: true
+    })
+    popup.addInput({
+      type: 'radio',
+      label: 'Médico',
+      value: 'medico'
+    })
+    popup.addInput({
+      type: 'radio',
+      label: 'Paciente',
+      value: 'paciente'
+    })
 
+    popup.addButton('Cancelar');
+    popup.addButton({
+      text: 'Rellenar datos',
+      handler: type => {
+        popup.dismiss();
+        this.createAccount(type);
+        return false
+      }
+    });
+    popup.present();
+  }
+
+  //Rellena los datos del usuario
+  createAccount(type) {
+    let popup2 = this.alertCtrl.create({
+      title: 'Crear Cuenta',
+      message: 'Introduzca los datos para crear un nuevo usuario',
+      inputs: [
+        {
+          name: 'nombre',
+          placeholder: 'Nombre'
+        },
+        {
+          name: 'email',
+          placeholder: 'Email',
+          type: 'email'
+        },
+        {
+          name: 'contraseña',
+          placeholder: 'Contraseña',
+          type: 'password'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancelar'
+        },
+        {
+          text: 'Crear cuenta',
+          handler: information => {
+            this.createNewUser(information.nombre,information.email, information.contraseña, type);
+          }
+        }
+      ]
+    });
+    popup2.present();
+  }
+
+  //Crea la cuenta en firebase
+  createNewUser(name,email, password, type) {
+    this.firebase.auth.createUser({
+      email: email,
+      password: password
+    }).then((sucess)=>{
+      this.firebase.database.object('/usuarios/' + sucess.uid).set({
+        nombre: name,
+        tipo: type
+      }).then(()=>{
+        this.writeToast("Cuenta creada correctamente");
+      });
     });
   }
 
-
-  buscar(){
-    this.foundservice.getPacientes().then(data => this.pacientes = data);
+  writeToast(message) {
+    let toast = this.toast.create({
+      message: message,
+      duration: 3000
+    });
+    toast.present();
   }
-
 
   logOut() {
     this.firebase.auth.logout().then(

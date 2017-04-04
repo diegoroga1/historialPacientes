@@ -1,6 +1,7 @@
 import { Component,ViewChild } from '@angular/core';
 import { Nav,NavController, NavParams } from 'ionic-angular';
 import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
+import {BuscarpacientePage} from "../buscarpaciente/buscarpaciente";
 /*
   Generated class for the PantallaMedico page.
 
@@ -31,7 +32,8 @@ export class IntroMedico {
 
   }
   buscarPaciente(){
-    console.log("Ir a buscar paciente");
+
+      this.navCtrl.push(BuscarpacientePage);
   }
   irACitasPendientes(){
     console.log("Ir a Citas pendientes");

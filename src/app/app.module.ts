@@ -7,7 +7,7 @@ import {IntroAdmin} from '../pages/introAdmin/introAdmin'
 import {IntroPage} from "../pages/intro/intro";
 import {IntroMedico} from '../pages/pantalla-medico/pantalla-medico';
 import {IntroPaciente} from "../pages/pantalla-paciente/pantalla-paciente";
-
+import {BuscarpacientePage} from "../pages/buscarpaciente/buscarpaciente";
 
 
 
@@ -16,7 +16,7 @@ import { AngularFireModule,
   AuthMethods,
   AuthProviders
 } from 'angularfire2';
-import {foundService} from "../providers/providers";
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCl1MSp5klkV1llJvw52GU3PzjOJjVYhq4",
@@ -39,7 +39,8 @@ export const firebaseAuthConfig = {
     Page2,
     IntroMedico,
     IntroAdmin,
-    IntroPaciente
+    IntroPaciente,
+    BuscarpacientePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -53,8 +54,9 @@ export const firebaseAuthConfig = {
     Page2,
     IntroMedico,
     IntroAdmin,
-    IntroPaciente
+    IntroPaciente,
+    BuscarpacientePage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, foundService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
