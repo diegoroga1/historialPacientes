@@ -1,4 +1,11 @@
-
+<ion-header >
+  <ion-navbar color="primary">
+    <button  ion-button="" menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Buscar pacientes</ion-title>
+  </ion-navbar>
+</ion-header>
 <ion-content padding class="home">
   <ion-searchbar (ionInput)="getItems($event)" ></ion-searchbar>
   <ion-list>

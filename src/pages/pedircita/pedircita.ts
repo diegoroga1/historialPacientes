@@ -24,7 +24,7 @@ export class PedircitaPage {
   campos = {
     fecha: new Date().getDate() +'/'+ (new Date().getMonth()+1) + '/'+(new Date().getFullYear()),
     uidPaciente: '0',
-    medico: ''
+    uidMedico: ''
   }
   private firebase;
   constructor(public navCtrl: NavController, public navParams: NavParams, af:AngularFire) {
@@ -35,7 +35,7 @@ export class PedircitaPage {
     this.medicos = af.database.list('/usuarios',{preserveSnapshot:true});
 
     //this.citasmedicos = af.database.list('/usuarios'+'/'+this.campos.medico+'/citas');
-    console.log(this.campos.medico)
+    console.log(this.campos.uidMedico)
 
     this.medicos.subscribe(usuarios => {
       var temp: any;
@@ -54,7 +54,7 @@ export class PedircitaPage {
     key =  IDkey.key
     console.log(IDkey);
     this.citasM.uid = key;
-    this.citasmedicos = this.firebase.database.list('/usuarios'+'/'+this.campos.medico+'/citas');
+    this.citasmedicos = this.firebase.database.list('/usuarios'+'/'+this.campos.uidMedico+'/citas');
     this.citaspaciente = this.firebase.database.list('/usuarios'+'/'+this.uid+'/citas');
     this.citasmedicos.push(this.citasM);
     this.citaspaciente.push(this.citasM);

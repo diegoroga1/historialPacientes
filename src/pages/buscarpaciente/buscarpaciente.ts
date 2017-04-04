@@ -18,7 +18,6 @@ export class BuscarpacientePage {
   pacientes: any;
   pacientes2: FirebaseListObservable<any>;
   arraypacientes = [];
-  pacientes3: FirebaseListObservable<any>;
   i=0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public firebase: AngularFire) {
@@ -64,7 +63,7 @@ export class BuscarpacientePage {
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.arraypacientes = this.arraypacientes.filter((item) => {
-        return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        return (item.nombre.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
   }

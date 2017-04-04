@@ -25,13 +25,15 @@ export class CitasPendientesPage {
     this.citas.subscribe(citas => {
       citas.forEach(cita => {
         var tempInfo: any = {};
-        this.firebase.database.object('/citas/' + cita.key, {preserveSnapshot: true}).subscribe(infoCita => {
+        this.firebase.database.object('/citas/' + cita.val().uid, {preserveSnapshot: true}).subscribe(infoCita => {
           console.log(infoCita.val());
-          this.firebase.database.object('/usuarios/' + infoCita.val().medico, {preserveSnapshot: true}).subscribe(infoMedico => {
-            tempInfo = infoCita.val();
-            tempInfo.nombreMedico = infoMedico.val().nombre;
-            this.citasPendientes.push(tempInfo);
-          });
+          if (infoCita.val()) {
+            this.firebase.database.object('/usuarios/' + infoCita.val().medico, {preserveSnapshot: true}).subscribe(infoMedico => {
+              tempInfo = infoCita.val();
+              tempInfo.nombreMedico = infoMedico.val().nombre;
+              this.citasPendientes.push(tempInfo);
+            });
+          }
         });
       });
     });
