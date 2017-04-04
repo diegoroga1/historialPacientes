@@ -1,15 +1,10 @@
-<ion-header>
-
-  <ion-navbar>
-    <button ion-button menuToggle>
+<ion-header >
+  <ion-navbar color="primary">
+    <button  ion-button="" menuToggle >
       <ion-icon name="menu"></ion-icon>
-
     </button>
-    <ion-title>
-      Historial pacientes
-    </ion-title>
+    <ion-title>Pagina administrador</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 <ion-menu [content]="content" id="menu2">
@@ -47,7 +42,7 @@
     </ion-buttons>
     <ion-buttons>
 
-      <button ion-button class="button-width" outline>Gestionar cita</button>
+      <button ion-button class="button-width" outline (click)="accederCitasPendientes()">Gestionar cita</button>
 
 
     </ion-buttons>
