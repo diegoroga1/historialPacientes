@@ -6,19 +6,37 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>ListadoMedicos</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Médicos</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="home">
+
+  <div class="bottom-distance">
+    <p class="texto">Seleccionar especialidad:</p>
+    <ion-item>
+      <ion-label>Especialidad</ion-label>
+      <ion-select [(ngModel)]="especialidad" (ngModelChange)="selectMed($event)">
+        <ion-option value="Radiología">Radiología</ion-option>
+        <ion-option value="Cardiología">Cardiología</ion-option>
+        <ion-option value="Medicina General">Medicina General</ion-option>
+        <ion-option value="Traumatología">Traumatología</ion-option>
+        <ion-option value="Alergología">Alergología</ion-option>
+      </ion-select>
+    </ion-item>
+  </div>
 
   <ion-list *ngFor="let medico of todos | async">
-    <ion-item *ngIf="medico.tipo == 'medico'">
-      <p>{{medico.nombre}}</p>
+    <ion-item *ngIf="medico.tipo == 'medico'" class="upper-distance">
+      <div class="inline"><p class="_50percent dark">Nombre: </p><p class="_50percent distance-left">{{medico.nombre}}</p></div>
+      <div class="inline"><p class="_50percent dark">Especialidad: </p><p class="_50percent distance-left">{{medico.especialidad}}</p></div>
     </ion-item>
   </ion-list>
 
+  <div id="logo">
+    <img src="assets/images/logo.png" alt="" class="logo">
+  </div>
 </ion-content>
