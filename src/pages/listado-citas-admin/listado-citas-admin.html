@@ -1,6 +1,6 @@
-<ion-header >
+<ion-header>
   <ion-navbar color="primary">
-    <button  ion-button="" menuToggle >
+    <button ion-button="" menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Lista de peticion de citas</ion-title>
@@ -10,10 +10,12 @@
 <ion-content padding class="home">
   <h1 class="textoCentrado azul margenBot">Listado de citas pendientes</h1>
   <ul class="listaCitas">
-    <li class="elementoListaCitas" *ngFor="let cita of citas" (click)="accederCita(cita.$key, cita.uidMedico, cita.uidPaciente)">
+    <li class="elementoListaCitas" *ngFor="let cita of citas"
+        (click)="accederCita(cita.$key, cita.uidMedico, cita.uidPaciente)">
       <p><span class="azul negrita">Título:</span><span class="negrita"> {{cita["title"]}}</span></p>
       <p><span class="azul">Especialidad demandada:</span><span> {{cita.espec}}</span></p>
       <p><span class="azul">Fecha de la demanda:</span><span> {{cita.fecha}}</span></p>
+      <button class="button-md-danger" (click)="anularCita(cita.$key)">Anular cita</button>
     </li>
   </ul>
 
