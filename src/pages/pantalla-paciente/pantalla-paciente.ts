@@ -7,6 +7,7 @@ import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
 import {CitasPendientesPage} from "../citas-pendientes/citas-pendientes";
 import {HistorialpacientePage} from "../historialpaciente/historialpaciente";
 import {AngularFire} from "angularfire2";
+import {PerfilPage} from "../perfil/perfil";
 /*
  Generated class for the PantallaPaciente page.
 
@@ -58,7 +59,7 @@ export class IntroPaciente {
     console.log("Ir a Perfil");
   }
   irAPerfil(){
-    console.log("ir a perfil");
+    this.navCtrl.push(PerfilPage);
   }
 
   verFichaPaciente(){
