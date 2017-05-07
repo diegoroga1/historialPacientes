@@ -19,24 +19,43 @@ export class VerFichaPropiaPage {
   user:FirebaseListObservable<any>;
   user_uid:any;
   user_name:any;
+  user_edad:any;
+  user_sexo:any;
+  user_dni:any;
+  user_fecha:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public af:AngularFire) {
-    this.diags=af.database.list('/diags',{
-    }).map((array)=>array.reverse()) as FirebaseListObservable<any>;
+
     this.user_uid=localStorage.getItem("user_uid");
+    this.diags=af.database.list("/usuarios/"+this.user_uid+"diagnosticos",{
+    }).map((array)=>array.reverse()) as FirebaseListObservable<any>;
+    this.diags.forEach(data=>{
+      console.log(data);
+    })
     this.user=af.database.list('/usuarios/'+this.user_uid);
     this.user.forEach(data=>{
       data.forEach(item=>{
-        if(item.$key=="nombre"){
-          this.user_name=item.$value;
-          console.log(this.user_name);
+
+        if(item.$key=="nombre") {
+          this.user_name = item.$value;
         }
+        if(item.$key=="edad") {
+          this.user_edad = item.$value;
+        }
+        if(item.$key=="sexo") {
+          this.user_sexo = item.$value;
+        }
+        if(item.$key=="dni") {
+          this.user_dni = item.$value;
+        }
+        if(item.$key=="fecha") {
+          this.user_fecha = item.$value;
+        }
+
       })
 
     })
 
   }
-
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad VerFichaPropiaPage');
   }

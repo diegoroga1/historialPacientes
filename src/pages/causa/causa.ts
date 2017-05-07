@@ -27,7 +27,6 @@ export class CausaPage {
 
   }
   add(){
-
     this.diags.push(this.campos);
     this.navCtrl.push(VistaFichaPacientePage);
   }

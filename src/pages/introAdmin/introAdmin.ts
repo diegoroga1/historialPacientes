@@ -87,6 +87,24 @@ export class IntroAdmin {
           name: 'contraseña',
           placeholder: 'Contraseña',
           type: 'password'
+        },
+        {
+          name: 'edad',
+          placeholder: 'Edad',
+          type: 'number'
+        },
+        {
+          name: 'dni',
+          placeholder: 'DNI'
+        },
+        {
+          name: 'fecha',
+          placeholder: 'Fecha de Nacimiento',
+          type: 'date'
+        },
+        {
+          name: 'sexo',
+          placeholder: 'Sexo'
         }
       ],
       buttons: [
@@ -96,7 +114,7 @@ export class IntroAdmin {
         {
           text: 'Crear cuenta',
           handler: information => {
-            this.createNewUser(information.nombre,information.email, information.contraseña, type);
+            this.createNewUser(information.nombre,information.email, information.contraseña,information.edad,information.sexo,information.dni,information.fecha, type);
           }
         }
       ]
@@ -105,14 +123,19 @@ export class IntroAdmin {
   }
 
   //Crea la cuenta en firebase
-  createNewUser(name,email, password, type) {
+  createNewUser(name,email, password,edad,sexo,dni,fecha, type) {
     this.firebase.auth.createUser({
       email: email,
       password: password
     }).then((sucess)=>{
       this.firebase.database.object('/usuarios/' + sucess.uid).set({
         nombre: name,
-        tipo: type
+        tipo: type,
+        edad:edad,
+        sexo:sexo,
+        dni:dni,
+        fecha:fecha
+
       }).then(()=>{
         this.writeToast("Cuenta creada correctamente");
       });
