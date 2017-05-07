@@ -1,4 +1,3 @@
-import { VerCalendarioPage } from './../pages/ver-calendario/ver-calendario';
 import { MedicoscitaAdminPage } from './../pages/medicoscita-admin/medicoscita-admin';
 import { ListadoCitasAdminPage } from './../pages/listado-citas-admin/listado-citas-admin';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -62,7 +61,6 @@ export const firebaseAuthConfig = {
     CitasPendientesMedicoPage,
     CitasPendientesPage,
     MedicoscitaAdminPage,
-    VerCalendarioPage,
     ModalHorarioPage
   ],
   imports: [
@@ -89,7 +87,6 @@ export const firebaseAuthConfig = {
     CitasPendientesMedicoPage,
     CitasPendientesPage,
     MedicoscitaAdminPage,
-    VerCalendarioPage,
     ModalHorarioPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, DatePicker, DatePipe]

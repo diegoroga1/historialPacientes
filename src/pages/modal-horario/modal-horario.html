@@ -1,0 +1,60 @@
+<!--
+  Generated template for the ModalHorario page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Horario Disponible</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding  class="home">
+
+  <ion-list option-buttons="itemButtons" can-swipe="true">
+     
+      <ion-item class="rojo negrita textoCentrado" *ngIf="!hora8" >8:00</ion-item>
+      <ion-item class="verde negrita textoCentrado" *ngIf="hora8" (click)="reservarCita('ocho')">8:00</ion-item>
+
+      <ion-item class="rojo negrita textoCentrado" *ngIf="!hora830">8:30</ion-item>
+      <ion-item class="verde negrita textoCentrado" *ngIf="hora830" (click)="reservarCita('ochoMedia')">8:30</ion-item>
+
+      <ion-item class="rojo negrita textoCentrado" *ngIf="!hora9">9:00</ion-item>
+      <ion-item class="verde negrita textoCentrado" *ngIf="hora9" (click)="reservarCita('nueve')">9:00</ion-item>
+
+      <ion-item class="rojo negrita textoCentrado" *ngIf="!hora930">9:30</ion-item>
+      <ion-item class="verde negrita textoCentrado" *ngIf="hora930" (click)="reservarCita('nueveMedia')">9:30</ion-item>
+
+      <ion-item class="rojo negrita textoCentrado" *ngIf="!hora10">10:00</ion-item>
+      <ion-item class="verde negrita textoCentrado" *ngIf="hora10" (click)="reservarCita('diez')">10:00</ion-item>
+
+      <ion-item class="rojo negrita textoCentrado" *ngIf="!hora1030">10:30</ion-item>
+      <ion-item class="verde negrita textoCentrado" *ngIf="hora1030" (click)="reservarCita('diezMedia')">10:30</ion-item>
+
+      <ion-item class="rojo negrita textoCentrado" *ngIf="!hora11">11:00</ion-item>
+      <ion-item class="verde negrita textoCentrado" *ngIf="hora11" (click)="reservarCita('once')">11:00</ion-item>
+
+      <ion-item class="rojo negrita textoCentrado" *ngIf="!hora1130">11:30</ion-item>
+      <ion-item class="verde negrita textoCentrado" *ngIf="hora1130" (click)="reservarCita('onceMedia')">11:30</ion-item>      
+      
+      <ion-item class="rojo negrita textoCentrado" *ngIf="!hora12">12:00</ion-item>
+      <ion-item class="verde negrita textoCentrado" *ngIf="hora12" (click)="reservarCita('doce')">12:00</ion-item>
+                  
+      <ion-item class="rojo negrita textoCentrado" *ngIf="!hora1230">12:30</ion-item>
+      <ion-item class="verde negrita textoCentrado" *ngIf="hora1230" (click)="reservarCita('doceMedia')">12:30</ion-item>      
+      
+      <ion-item class="rojo negrita textoCentrado" *ngIf="!hora13">13:00</ion-item>
+      <ion-item class="verde negrita textoCentrado" *ngIf="hora13" (click)="reservarCita('trece')">13:00</ion-item>
+
+      <ion-item class="rojo negrita textoCentrado" *ngIf="!hora1330">13:30</ion-item>
+      <ion-item class="verde negrita textoCentrado" *ngIf="hora1330" (click)="reservarCita('treceMedia')">13:30</ion-item>      
+
+      <ion-item class="rojo negrita textoCentrado" *ngIf="!hora14">14:00</ion-item>
+      <ion-item class="verde negrita textoCentrado" *ngIf="hora14" (click)="reservarCita('catorce')">14:00</ion-item>
+
+  </ion-list>
+</ion-content>  
