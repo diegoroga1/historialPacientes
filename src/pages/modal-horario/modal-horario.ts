@@ -41,6 +41,10 @@ export class ModalHorarioPage {
   citaObservable: FirebaseObjectObservable<any[]>;
   datosCitaActual;
 
+  cambio;
+
+  actualizarCita;
+
   constructor(public navCtrl: NavController, private af: AngularFire, public navParams: NavParams,
   public alertCtrl: AlertController, public datepipe: DatePipe) {
 
@@ -48,18 +52,19 @@ export class ModalHorarioPage {
       this.clavePaciente = navParams.get("clavePac");
       this.claveMedico = navParams.get("claveMed");
       this.claveCita = navParams.get("claveCi");
+      this.cambio = navParams.get("cambio");
 
+      console.log("CLAVE MEDICO" + this.claveMedico);
       this.citaObservable = this.af.database.object('citas/' + this.claveCita);
       
       this.citaObservable.subscribe(auxCitaActual => {
          this.datosCitaActual = auxCitaActual;
-         console.log(this.datosCitaActual);
       });
 
 
       this.fechaElegida = this.datepipe.transform(this.fechaElegida, 'dd-MM-yyyy');
       console.log(this.fechaElegida);
-      this.fechaActualObservable = this.af.database.list('usuarios/' + this.claveMedico + '/horario' );
+      this.fechaActualObservable = this.af.database.list('usuarios/' + this.claveMedico + '/citas' );
 
       //Si no existe en firebase this.horasOcupadas devuelve []
 
@@ -69,7 +74,7 @@ export class ModalHorarioPage {
           console.log(this.horasOcupadas);
           if (this.horasOcupadas) {
             for (var i=0; i < this.horasOcupadas.length; i++) {
-              if (this.horasOcupadas[i].fecha == this.fechaElegida) {
+              if (this.horasOcupadas[i].fechaAsignada == this.fechaElegida) {
                   switch (this.horasOcupadas[i].hora) {
                     case "ocho":
                       this.hora8 = false;
@@ -137,21 +142,162 @@ export class ModalHorarioPage {
           text: 'Aceptar',
           handler: data => {
           
-          console.log(hora);
+              console.log(hora);
+
+              if (this.cambio == false) {
+
+                  this.datosCitaActual.medicoAsignado = this.claveMedico;
+                  this.datosCitaActual.fechaAsignada = this.fechaElegida;
+                  this.datosCitaActual.hora = hora;
+                  this.datosCitaActual.estado = "aceptada";
+
+
+                  this.actualizarCita = this.af.database.object('citas/' + this.claveCita);
+                  this.actualizarCita.update(this.datosCitaActual);
+
+                  var eliminarCitaEspera: FirebaseListObservable<any[]>;
+
+                  eliminarCitaEspera = this.af.database.list('citasEspera/');
+      
+                  eliminarCitaEspera.subscribe(auxEliminarCita => {
+                      var arrayCitas = auxEliminarCita;
+                      for (var l = 0; l < arrayCitas.length; l++) {
+                        if (arrayCitas[l].uid == this.claveCita) {
+                            eliminarCitaEspera.remove(arrayCitas[l].$key);
+                        }
+                      }
+                  });
+
+                  var agregarCitaAceptada: FirebaseListObservable<any>;
+
+                  agregarCitaAceptada = this.af.database.list('citasAceptadas/');
+
+                  var objetoKeyAceptada = {
+                      uid: this.claveCita
+                  }
+                  agregarCitaAceptada.push(objetoKeyAceptada);
+
+                var objetoUsuario = {
+                      uid: this.claveCita,
+                      fecha: this.datosCitaActual.fecha,
+                      estado: this.datosCitaActual.estado,
+                      hora:  this.datosCitaActual.hora,
+                      fechaAsignada: this.datosCitaActual.fechaAsignada
+                }
+
+                var actualizarCitaMedico: FirebaseListObservable<any>;
+                actualizarCitaMedico = this.af.database.list('usuarios/' + this.claveMedico + '/citas');
+
+                actualizarCitaMedico.push(objetoUsuario);
+
+/*
+                actualizarCitaMedico.subscribe(auxMedico => {
+                    var arrayCitasMedico = auxMedico;
+                    for (var h = 0; h < arrayCitasMedico.length; h++) {
+                      if (arrayCitasMedico[h].uidCita == this.claveCita) {
+                          console.log("UPDATE CITAS MEDICO" + arrayCitasMedico[h].$key);
+
+                          var actualizarCitaMedico: FirebaseListObservable<any>;
+                          actualizarCitaMedico = this.af.database.list('usuarios/' + this.claveMedico + '/citas');
+                          
+                          actualizarCitaMedico.update(arrayCitasMedico[h].$key, objetousuario);
+                          break;
+                      }
+                    }
+                });
+*/
+                var actualizarCitaPaciente: FirebaseListObservable<any>;
+                actualizarCitaPaciente = this.af.database.list('usuarios/' + this.clavePaciente + '/citas');
+
+                actualizarCitaPaciente.subscribe(auxMedico => {
+                    var arrayCitaspaciente = auxMedico;
+                    for (var m = 0; m < arrayCitaspaciente.length; m++) {
+                      if (arrayCitaspaciente[m].uid == this.claveCita) {
+                          console.log("Entré en la cita" + arrayCitaspaciente[m].uid);
+                          var actualizarPaciente: FirebaseObjectObservable<any>;
+                          actualizarPaciente = this.af.database.object('usuarios/' + this.clavePaciente + '/citas/' + arrayCitaspaciente[m].$key);
+                          actualizarPaciente.update(objetoUsuario);
+                      }
+                    }
+                });
+
+              } else {
+                  if (this.cambio == true) {
+
+                      this.datosCitaActual.fechaAsignada = this.fechaElegida;
+                      this.datosCitaActual.hora = hora;
+                      this.datosCitaActual.estado = "aceptada";
+
+                      this.actualizarCita = this.af.database.object('citas/' + this.claveCita);
+                      this.actualizarCita.update(this.datosCitaActual);
+
+                      var eliminarCitaCambio: FirebaseListObservable<any[]>;
+
+                      eliminarCitaCambio = this.af.database.list('citasCambio/');
           
-          this.datosCitaActual.medico = this.claveMedico;
-          this.datosCitaActual.fecha = this.fechaElegida;
-          this.datosCitaActual.hora = hora;
+                      eliminarCitaCambio.subscribe(auxEliminarCitaCambio => {
+                          
+                          var arrayCitasCambio = auxEliminarCitaCambio;
+                          for (var p = 0; p < arrayCitasCambio.length; p++) {
+                            if (arrayCitasCambio[p].uid == this.claveCita) {
+                                eliminarCitaCambio.remove(arrayCitasCambio[p].$key);
+                            }
+                          }
+                      });
 
-          var insertarCitaMedico: FirebaseListObservable<any>;
-          insertarCitaMedico = this.af.database.list('usuarios/' + this.claveMedico + '/horario' );
-          insertarCitaMedico.push(this.datosCitaActual);
+                      var agregarCitaAceptada: FirebaseListObservable<any>;
 
-          var insertarCitaPaciente: FirebaseListObservable<any>;
-          insertarCitaPaciente = this.af.database.list('usuarios/' + this.clavePaciente + '/citasAceptadas' );
-          insertarCitaPaciente.push(this.datosCitaActual);
+                      agregarCitaAceptada = this.af.database.list('citasAceptadas/');
 
-          this.navCtrl.push(ListadoCitasAdminPage);
+                      var objetoKeyAceptada = {
+                          uid: this.claveCita
+                      }
+                      agregarCitaAceptada.push(objetoKeyAceptada);  
+
+                      var objetoUsuarioCambio = {
+                          //uidCita: this.claveCita,
+                          //fecha: this.datosCitaActual.fecha,
+                          estado: this.datosCitaActual.estado,
+                          hora:  this.datosCitaActual.hora,
+                          fechaAsignada: this.datosCitaActual.fechaAsignada
+                       }
+
+                      var actualizarCitaMedico: FirebaseListObservable<any>;
+                      actualizarCitaMedico = this.af.database.list('usuarios/' + this.claveMedico + '/citas');
+
+                      actualizarCitaMedico.subscribe(auxMedico => {
+                          var arrayCitasMedico = auxMedico;
+                          for (var q = 0; q < arrayCitasMedico.length; q++) {
+                              if (arrayCitasMedico[q].uid == this.claveCita) {
+
+                                  var actualizarMedicoCambio: FirebaseObjectObservable<any>;
+                                  actualizarMedicoCambio = this.af.database.object('usuarios/' + this.claveMedico + '/citas/' + arrayCitasMedico[q].$key);                                
+                                  actualizarMedicoCambio.update(objetoUsuarioCambio);
+                              }
+                          }
+                      });
+
+                      var actualizarCitaPaciente: FirebaseListObservable<any>;
+                      actualizarCitaPaciente = this.af.database.list('usuarios/' + this.clavePaciente + '/citas');
+
+                      actualizarCitaPaciente.subscribe(auxPaciente => {
+                          var arrayCitaspaciente = auxPaciente;
+                          for (var g = 0; g < arrayCitaspaciente.length; g++) {
+                              if (arrayCitaspaciente[g].uid == this.claveCita) {
+                           
+                                    var actualizarPacienteCambio: FirebaseObjectObservable<any>;
+                                    actualizarPacienteCambio = this.af.database.object('usuarios/' + this.clavePaciente + '/citas/' + arrayCitaspaciente[g].$key);                                
+                                    actualizarPacienteCambio.update(objetoUsuarioCambio);
+                              }
+                          }
+                      });
+
+
+
+
+                  }
+
+              }
 
           }
         }

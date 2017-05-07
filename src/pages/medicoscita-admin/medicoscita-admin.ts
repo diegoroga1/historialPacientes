@@ -19,34 +19,36 @@ import { DatePicker } from "@ionic-native/date-picker";
 export class MedicoscitaAdminPage {
 
   claveCita;
-  claveMedico;
   clavePaciente;
 
   paciente;
   medico;
   diagnostico;
   especialidad;
+
   listadoUsuarios;
   arrayMedicos = [];
   horaInicial;
   fechaElegida;
 
-  especialidadObservable: FirebaseObjectObservable<any>;
+  //especialidadObservable: FirebaseObjectObservable<any>;
   medicosObservable: FirebaseListObservable<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, af : AngularFire,
-  public datepipe: DatePipe, public datePicker: DatePicker, public datePicker2: DatePicker) {
+  public datepipe: DatePipe, public datePicker: DatePicker) {
 
       this.clavePaciente = navParams.get("uidPaciente");
-      this.claveMedico = navParams.get("uidMedico");
+      this.especialidad = navParams.get("especialidad");
       this.claveCita = navParams.get("keyCita");
+      console.log("especialidad" + this.especialidad);
 
+/*
       this.especialidadObservable = af.database.object('usuarios/' + this.claveMedico);
 
       this.especialidadObservable.subscribe(aux => {
           this.medico = aux;
           this.especialidad = this.medico.especialidad;
-      });
+      });*/
 
       this.medicosObservable = af.database.list('usuarios/');
       this.medicosObservable.subscribe(aux2 => {
@@ -103,7 +105,8 @@ export class MedicoscitaAdminPage {
         fecha: fecha,
         clavePac: this.clavePaciente,
         claveMed: claveMed,
-        claveCi:  this.claveCita
+        claveCi:  this.claveCita,
+        cambio: false
     });
   }
   
