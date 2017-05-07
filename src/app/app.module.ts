@@ -17,6 +17,8 @@ import {PedircitaPage} from "../pages/pedircita/pedircita";
 import {CitasPendientesMedicoPage} from "../pages/citas-pendientes-medico/citas-pendientes-medico";
 import {CitasPendientesPage} from "../pages/citas-pendientes/citas-pendientes";
 import { HistorialpacientePage } from "../pages/historialpaciente/historialpaciente";
+import {VerFichaPropiaPage} from "../pages/ver-ficha-propia/ver-ficha-propia";
+import {PedirCambioPage} from "../pages/pedir-cambio/pedir-cambio";
 
 
 
@@ -59,7 +61,9 @@ export const firebaseAuthConfig = {
     DiagnosticoPage,
     PedircitaPage,
     CitasPendientesMedicoPage,
-    CitasPendientesPage
+    CitasPendientesPage,
+    VerFichaPropiaPage,
+    PedirCambioPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -83,7 +87,9 @@ export const firebaseAuthConfig = {
     DiagnosticoPage,
     PedircitaPage,
     CitasPendientesMedicoPage,
-    CitasPendientesPage
+    CitasPendientesPage,
+    VerFichaPropiaPage,
+    PedirCambioPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

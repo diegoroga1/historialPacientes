@@ -34,6 +34,7 @@ export class IntroPage {
       (success) => {
         this.tipo = this.firebase.database.object('/usuarios/' + success.uid + '/tipo', {preserveSnapshot: true});
         localStorage.setItem("user_uid", success.uid);
+
         this.tipo.subscribe(snapshot => {
           localStorage.setItem("user_type", snapshot.val());
           switch (snapshot.val()) {

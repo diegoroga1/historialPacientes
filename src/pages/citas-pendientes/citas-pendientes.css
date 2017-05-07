@@ -26,5 +26,7 @@ page-citas-pendientes .no-citas {
   color: white;
   text-align: center !important;
   position: relative; }
+page-citas-pendientes .contenido-cita {
+  float: left; }
 
 /*# sourceMappingURL=citas-pendientes.css.map */

@@ -2,16 +2,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>Ficha paciente</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="addDiag()">
-        <ion-icon name="add"></ion-icon>
-      </button>
-      <button ion-button icon-only="" (click)="addAppointment()">
-        <ion-icon  name="calendar">
-        </ion-icon>
-      </button>
-    </ion-buttons>
+    <ion-title>Mi historial</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -24,7 +15,7 @@
     <ion-grid id="grid-datos">
       <ion-row >
         <ion-col width-100>
-            <h3>Nombre: <span>Pepito de Los Palotes</span> </h3>
+          <h3>Nombre: <span>{{user_name}}</span> </h3>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -37,7 +28,7 @@
       </ion-row>
       <ion-row>
         <ion-col width-50>
-            <h3>Nacionalidad: <span>Mongolia</span></h3>
+          <h3>Nacionalidad: <span>Mongolia</span></h3>
         </ion-col>
         <ion-col width-50>
           <h3>Fecha nacimiento: <span>10/10/1993</span></h3>
@@ -45,7 +36,7 @@
       </ion-row>
       <ion-row>
         <ion-col width-50>
-            <h3>DNI: <span>77777777Ñ</span></h3>
+          <h3>DNI: <span>77777777Ñ</span></h3>
         </ion-col>
         <ion-col width-50>
           <h3>Telefono: <span>677698969</span></h3>
@@ -53,7 +44,7 @@
       </ion-row>
       <ion-row>
         <ion-col width-100>
-            <h3>Medico: <span>Patricio Calero Gonzalez</span></h3>
+          <h3>Medico: <span>Patricio Calero Gonzalez</span></h3>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -68,6 +59,8 @@
       <ion-card-header>
         <h1>{{diag.title}}</h1>
         <h4 style="float:right;">{{diag.fecha}}</h4>
+
+
       </ion-card-header>
       <ion-card-content>
         <span class="ellipsis" >Causa: {{diag.causa}}</span>

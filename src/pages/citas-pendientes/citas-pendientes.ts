@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
-
+import { NavController, NavParams } from 'ionic-angular';
+import {PedirCambioPage} from "../pedir-cambio/pedir-cambio";
 /*
  Generated class for the CitasPendientes page.
 
@@ -16,7 +17,7 @@ export class CitasPendientesPage {
   private citasPendientes: any[] = [];
   private firebase;
 
-  constructor(firebase: AngularFire) {
+  constructor(firebase: AngularFire,public navCtrl: NavController) {
     this.firebase = firebase;
     this.citas = this.firebase.database.list('/usuarios/' + localStorage.getItem("user_uid") + '/citas', {preserveSnapshot: true});
   }
@@ -37,6 +38,9 @@ export class CitasPendientesPage {
         });
       });
     });
+  }
+  cambiarCita(){
+    this.navCtrl.push(PedirCambioPage);
   }
 
 }

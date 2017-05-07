@@ -2,6 +2,7 @@ import { Component,ViewChild } from '@angular/core';
 import { Nav,NavController, NavParams } from 'ionic-angular';
 //import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
 import {PedircitaPage} from "../pedircita/pedircita";
+import {VerFichaPropiaPage} from "../ver-ficha-propia/ver-ficha-propia";
 //import Auth = firebase.auth.Auth;
 import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
 import {CitasPendientesPage} from "../citas-pendientes/citas-pendientes";
@@ -62,7 +63,7 @@ export class IntroPaciente {
   }
 
   verFichaPaciente(){
-    this.navCtrl.push(HistorialpacientePage);
+    this.navCtrl.push(VerFichaPropiaPage);
   }
 
 }

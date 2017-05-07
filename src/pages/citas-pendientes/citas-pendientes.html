@@ -13,7 +13,15 @@
     <ion-card *ngFor="let cita of citasPendientes">
       <ion-card-content>
         <!-- Add card content here! -->
-        Tiene cita con {{cita.nombreMedico}} el día {{cita.fecha}}
+       <div class="contenido-cita">Tiene cita con {{cita.nombreMedico}} el día {{cita.fecha}}</div>
+        <div>
+          <ion-buttons end>
+            <button ion-button icon-only="" (click)="cambiarCita()">
+              <ion-icon  name="sync">
+              </ion-icon>
+            </button>
+          </ion-buttons>
+        </div>
       </ion-card-content>
     </ion-card>
   </ion-list>
