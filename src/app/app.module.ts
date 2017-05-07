@@ -24,6 +24,8 @@ import { AngularFireModule,
   AuthProviders
 } from 'angularfire2';
 import {ListadoMedicosPage} from "../pages/listado-medicos/listado-medicos";
+import {CrearSubdiagPage} from "../pages/crear-subdiag/crear-subdiag";
+import {SubdiagnosticoPage} from "../pages/subdiagnostico/subdiagnostico";
 
 
 
@@ -57,7 +59,9 @@ export const firebaseAuthConfig = {
     PedircitaPage,
     CitasPendientesMedicoPage,
     CitasPendientesPage,
-    ListadoMedicosPage
+    ListadoMedicosPage,
+    CrearSubdiagPage,
+    SubdiagnosticoPage,
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -80,7 +84,9 @@ export const firebaseAuthConfig = {
     PedircitaPage,
     CitasPendientesMedicoPage,
     CitasPendientesPage,
-    ListadoMedicosPage
+    ListadoMedicosPage,
+    CrearSubdiagPage,
+    SubdiagnosticoPage,
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
