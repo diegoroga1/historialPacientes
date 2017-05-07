@@ -17,8 +17,9 @@ import "rxjs/add/operator/map";
 })
 export class VistaFichaPacientePage {
   diags:FirebaseListObservable<any>;
-
+  uid: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController,public af:AngularFire) {
+    this.uid = this.navParams.get('uid');
     this.diags=af.database.list('/diags',{
           }).map((array)=>array.reverse()) as FirebaseListObservable<any>;
   }
@@ -31,7 +32,7 @@ export class VistaFichaPacientePage {
   }
   addDiag(){
     console.log("Añadir diagnostico");
-    this.navCtrl.push(CausaPage);
+    this.navCtrl.push(CausaPage,{uid:this.uid});
   }
   goToViewDiag(diagId){
     this.navCtrl.push(DiagnosticoPage,{

@@ -8,7 +8,11 @@
 
   <ion-navbar color="primary">
     <ion-title >Diagnóstico</ion-title>
-
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addDiag()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -31,4 +35,31 @@
       <ion-item style="background-color: transparent;" no-lines text-wrap *ngIf="diag.$key == diagId">{{diag.fecha}}</ion-item>
     </div>
   </ion-list>
+
+
+  <hr class="style17">
+  <ion-label id="label-diags">
+    <h4>Subdiágnosticos</h4>
+  </ion-label>
+  <hr class="style14">
+  <ion-list id="diags-list" *ngFor="let sub of Subdiags |async">
+    <ion-card (click)="goToViewSub(sub.$key)">
+      <ion-card-header>
+        <h1>{{sub.title}}</h1>
+        <h4 style="float:right;">{{sub.fecha}}</h4>
+
+
+      </ion-card-header>
+      <ion-card-content>
+        <span class="ellipsis" >Causa: {{sub.causa}}</span>
+        <span class="ellipsis">Diagnostico: {{sub.diag}}</span>
+        <span  class="ellipsis">Padece: {{sub.padec}}</span>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+  <ion-footer>
+    <div id="medical-buttons">
+
+    </div>
+  </ion-footer>
 </ion-content>
