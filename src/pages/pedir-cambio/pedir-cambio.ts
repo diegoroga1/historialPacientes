@@ -15,16 +15,15 @@ export class PedirCambioPage {
   citas:FirebaseListObservable<any>;
   cambios:FirebaseListObservable<any>;
   cita:FirebaseListObservable<any>;
-  cambio:any;
+  descripcion:'';
   constructor(public navCtrl: NavController,public af:AngularFire,public alertCtrl:AlertController, public navParams: NavParams) {
     this.cambios=af.database.list('/citasCambio');
     this.cita_uid=this.navParams.get('cita');
     this.citas=af.database.list('/citas');
-    this.cambio={estado:"cambio"};
     console.log(this.citas);
 
   }
-  presentConfirm() {
+  presentConfirm(form) {
     let alert = this.alertCtrl.create({
       title: 'Cambiar Cita',
       message: '¿Quieres cambiar la cita?',
@@ -39,7 +38,8 @@ export class PedirCambioPage {
         {
           text: 'Si',
           handler: () => {
-            this.actualizaEstadoCita();
+
+            this.actualizaEstadoCita(form);
             this.navCtrl.push(CitasPendientesPage);
           }
         }
@@ -50,14 +50,14 @@ export class PedirCambioPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PedirCambioPage');
   }
-  actualizaEstadoCita() {
-    this.citas.forEach(data=>{
-      data.forEach(item=>{
-        if(item.$key==this.cita_uid){
-          this.af.database.object('/citas/'+this.cita_uid).update({estado:"cambio"})
-        }
-      })
-    })
+  actualizaEstadoCita(form:any) {
+    this.descripcion=form.value.descripcion;
+  console.log(this.descripcion);
+    this.af.database.object('/citas/'+this.cita_uid).update({estado:"cambio"})
+    this.cambios.push({
+      cita_uid:this.cita_uid,
+      descripcion:this.descripcion
+    });
   }
 
 }
