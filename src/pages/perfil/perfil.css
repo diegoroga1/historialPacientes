@@ -1,0 +1,10 @@
+page-perfil .home {
+  background: #93cede;
+  background: -moz-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
+  background: -webkit-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
+  background: -o-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
+  background: -ms-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
+  background: linear-gradient(to bottom, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=0 ); }
+
+/*# sourceMappingURL=perfil.css.map */

@@ -1,0 +1,48 @@
+<!--
+  Generated template for the Perfil page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Perfil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="home">
+  <div *ngFor="let a of userprofile | async">
+    <div class="contenedor"><img class="imagen" *ngIf="a.$key == 'imagen'" src="{{a.$value}}" (click)="changeImage()"></div>
+  </div>
+  <ion-list >
+    <div *ngFor="let a of userprofile | async">
+
+      <ion-item margin-top *ngIf="a.$key == 'nombre'" (click)="changeName()">
+        <ion-icon  name="ios-at-outline" item-left></ion-icon>
+        Nombre:
+        <ion-note item-right>
+          {{a.$value}}
+        </ion-note>
+      </ion-item>
+      <ion-item margin-top *ngIf="a.$key == 'correo'" (click)="changeEmail()">
+        <ion-icon name="ios-mail" item-left></ion-icon>
+        Correo
+        <ion-note item-right>
+          {{a.$value}}
+        </ion-note>
+      </ion-item>
+      <ion-item margin-top *ngIf="a.$key == 'telefono'" (click)="changePhone()">
+        <ion-icon *ngIf="a.$key == 'telefono'" name="ios-phone-portrait" item-left></ion-icon>
+        Telefono:
+        <ion-note item-right>
+          {{a.$value}}
+        </ion-note>
+      </ion-item>
+    </div>
+  </ion-list>
+
+
+</ion-content>

@@ -27,6 +27,7 @@ import { AngularFireModule,
   AuthMethods,
   AuthProviders
 } from 'angularfire2';
+import {PerfilPage} from "../pages/perfil/perfil";
 
 
 
@@ -63,7 +64,9 @@ export const firebaseAuthConfig = {
     CitasPendientesMedicoPage,
     CitasPendientesPage,
     VerFichaPropiaPage,
-    PedirCambioPage
+    PedirCambioPage,
+    PerfilPage
+
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -89,7 +92,8 @@ export const firebaseAuthConfig = {
     CitasPendientesMedicoPage,
     CitasPendientesPage,
     VerFichaPropiaPage,
-    PedirCambioPage
+    PedirCambioPage,
+    PerfilPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

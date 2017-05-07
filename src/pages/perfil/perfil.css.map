@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,iBAAK;EACH,UAAU,EAAE,OAAmB;EAC/B,UAAU,EAAE,yFAAoJ;EAChK,UAAU,EAAE,4FAAuJ;EACnK,UAAU,EAAE,uFAAkJ;EAC9J,UAAU,EAAE,wFAAmJ;EAC/J,UAAU,EAAE,0FAAqJ;EACjK,MAAM,EAAE,4GAA4G",
+"sources": ["perfil.scss"],
+"names": [],
+"file": "perfil.css"
+}
