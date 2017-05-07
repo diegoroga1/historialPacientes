@@ -16,6 +16,7 @@ export class CitasPendientesPage {
   private citas: FirebaseListObservable<any[]>;
   private citasPendientes: any[] = [];
   private firebase;
+  public cita_uid:any;
 
   constructor(firebase: AngularFire,public navCtrl: NavController) {
     this.firebase = firebase;
@@ -33,6 +34,7 @@ export class CitasPendientesPage {
               tempInfo = infoCita.val();
               tempInfo.nombreMedico = infoMedico.val().nombre;
               this.citasPendientes.push(tempInfo);
+              this.cita_uid=cita.val().uid;
             });
           }
         });
@@ -40,7 +42,10 @@ export class CitasPendientesPage {
     });
   }
   cambiarCita(){
-    this.navCtrl.push(PedirCambioPage);
+    console.log(this.cita_uid);
+    this.navCtrl.push(PedirCambioPage,{
+      cita:this.cita_uid
+    });
   }
 
 }

@@ -23,13 +23,28 @@ export class VerFichaPropiaPage {
   user_sexo:any;
   user_dni:any;
   user_fecha:any;
+  diags_uid=[];
+  paciente_diag=[];
+  list_diags:FirebaseListObservable<any>;;
   constructor(public navCtrl: NavController, public navParams: NavParams,public af:AngularFire) {
-
     this.user_uid=localStorage.getItem("user_uid");
-    this.diags=af.database.list("/usuarios/"+this.user_uid+"diagnosticos",{
-    }).map((array)=>array.reverse()) as FirebaseListObservable<any>;
+    this.diags=af.database.list("/usuarios/"+this.user_uid+"/diagnosticos");
+    this.list_diags=af.database.list('/diags');
     this.diags.forEach(data=>{
-      console.log(data);
+      data.forEach(item=>{
+        this.diags_uid.push(item.uid)
+      })
+    })
+
+    this.list_diags.forEach(data2=>{
+      data2.forEach(item2=>{
+        this.diags_uid.forEach(uid=>{
+          if(item2.$key==uid){
+            this.paciente_diag.push(item2)
+          }
+        })
+      })
+      this.paciente_diag.reverse();
     })
     this.user=af.database.list('/usuarios/'+this.user_uid);
     this.user.forEach(data=>{
@@ -62,6 +77,7 @@ export class VerFichaPropiaPage {
   getDiags(){
     this.af.database.list('/diags');
   }
+
 
   goToViewDiag(diagId){
     this.navCtrl.push(DiagnosticoPage,{

@@ -21,7 +21,9 @@ export class NewPage {
     this.diags = af.database.list('/diags');
   }
   addDiag(){
-    this.navCtrl.push(CausaPage);
+    this.navCtrl.push(CausaPage,{
+
+    });
     /*let prompt = this.alertCtrl.create({
      title: 'Diagnóstico',
      message: "Rellena los datos del nuevo diagnóstico",

@@ -3,6 +3,7 @@ import { NavController, NavParams,ActionSheetController  } from 'ionic-angular';
 import {AngularFire,FirebaseListObservable} from 'angularfire2';
 import {CausaPage} from '../causa/causa';
 import {DiagnosticoPage} from '../diagnostico/diagnostico';
+import {PedircitaPage} from '../pedircita/pedircita';
 import "rxjs/add/operator/map";
 
 /*
@@ -24,22 +25,33 @@ export class VistaFichaPacientePage {
   user_sexo:any;
   user_dni:any;
   user_uid:any;
-  diags_uid:any;
+  diags_uid=[];
+  list_diags:FirebaseListObservable<any>;
+  paciente_diag=[];
   constructor(public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController,public af:AngularFire) {
     this.user_uid=this.navParams.get("uid");
-    this.diags=af.database.list('/usuarios/'+this.user_uid+"diagnosticos",{
-          }).map((array)=>array.reverse()) as FirebaseListObservable<any>;
+    this.diags=af.database.list('/usuarios/'+this.user_uid+"/diagnosticos");
+    this.list_diags=af.database.list('/diags');
     this.diags.forEach(data=>{
-      console.log(data);
       data.forEach(item=>{
-        this.diags_uid=item.$key;
+        this.diags_uid.push(item.uid)
+        })
+      })
+    this.list_diags.forEach(data2=>{
+      data2.forEach(item2=>{
+        this.diags_uid.forEach(uid=>{
+          if(item2.$key==uid){
+            this.paciente_diag.push(item2)
+          }
+        })
 
       })
+      console.log(this.paciente_diag);
+      this.paciente_diag.reverse();
     })
-    this.user=af.database.list('/usuarios/'+this.user_uid);
+    this.user=af.database.list('/usuarios/'+this.user_uid)
     this.user.forEach(data=> {
       data.forEach(item => {
-        console.log(item);
         if (item.$key == "nombre") {
           this.user_name = item.$value;
         }
@@ -65,9 +77,15 @@ export class VistaFichaPacientePage {
   getDiags(){
     this.af.database.list('/diags');
   }
+  pedirCita(){
+    this.navCtrl.push(PedircitaPage);
+  }
   addDiag(){
     console.log("Añadir diagnostico");
-    this.navCtrl.push(CausaPage);
+    this.navCtrl.push(CausaPage,{
+      uid:this.user_uid
+
+    });
   }
   goToViewDiag(diagId){
     this.navCtrl.push(DiagnosticoPage,{

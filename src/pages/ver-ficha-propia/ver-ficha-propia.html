@@ -40,7 +40,7 @@
     <h2>Diágnosticos</h2>
   </ion-label>
   <hr class="style14">
-  <ion-list id="diags-list" *ngFor="let diag of diags |async">
+  <ion-list id="diags-list" *ngFor="let diag of paciente_diag ">
     <ion-card (click)="goToViewDiag(diag.$key)">
       <ion-card-header>
         <h1>{{diag.title}}</h1>

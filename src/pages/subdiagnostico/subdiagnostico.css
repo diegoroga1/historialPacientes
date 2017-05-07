@@ -1,5 +1,5 @@
 @charset "UTF-8";
-page-diagnostico .home {
+page-subdiagnostico .home {
   background: #93cede;
   background: -moz-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
   background: -webkit-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
@@ -7,19 +7,19 @@ page-diagnostico .home {
   background: -ms-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
   background: linear-gradient(to bottom, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=0 ); }
-page-diagnostico ion-item {
+page-subdiagnostico ion-item {
   background-color: transparent; }
-page-diagnostico .header-card {
+page-subdiagnostico .header-card {
   background-color: transparent;
   color: black;
   padding: 0;
   margin: 0;
   text-align: center;
   font-weight: bold; }
-page-diagnostico hr.style17 {
+page-subdiagnostico hr.style17 {
   border-top: 1px solid #8c8b8b;
   text-align: center; }
-page-diagnostico hr.style17:after {
+page-subdiagnostico hr.style17:after {
   content: '┬º';
   display: inline-block;
   position: relative;
@@ -31,51 +31,51 @@ page-diagnostico hr.style17:after {
   -webkit-transform: rotate(60deg);
   -moz-transform: rotate(60deg);
   transform: rotate(60deg); }
-page-diagnostico #foto-paciente {
+page-subdiagnostico #foto-paciente {
   float: left; }
-page-diagnostico #grid-datos {
+page-subdiagnostico #grid-datos {
   width: auto; }
-  page-diagnostico #grid-datos ion-col {
+  page-subdiagnostico #grid-datos ion-col {
     padding: 0; }
-  page-diagnostico #grid-datos h3 {
+  page-subdiagnostico #grid-datos h3 {
     font-size: 1em;
     font-weight: normal; }
-    page-diagnostico #grid-datos h3 span {
+    page-subdiagnostico #grid-datos h3 span {
       font-size: 1em;
       font-weight: bold; }
-page-diagnostico #label-diags {
+page-subdiagnostico #label-diags {
   margin: 0;
   padding-bottom: 5px; }
-  page-diagnostico #label-diags h2 {
+  page-subdiagnostico #label-diags h2 {
     font-size: 1.2em;
     padding: 0;
     margin: 0;
     text-align: center; }
-  page-diagnostico #label-diags h4 {
+  page-subdiagnostico #label-diags h4 {
     font-size: 1.2em;
     padding: 0;
     margin: 0;
     text-align: center; }
-page-diagnostico #diags-list ion-card {
+page-subdiagnostico #diags-list ion-card {
   background-color: transparent;
   width: 100%;
   margin: 0;
   padding: 5px; }
-  page-diagnostico #diags-list ion-card ion-card-header {
+  page-subdiagnostico #diags-list ion-card ion-card-header {
     background-color: rgba(0, 0, 0, 0.2);
     color: black;
     cursor: pointer; }
-page-diagnostico #diags-list span {
+page-subdiagnostico #diags-list span {
   width: 100%;
   float: left;
   padding: 0; }
-page-diagnostico #diags-list .ellipsis {
+page-subdiagnostico #diags-list .ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
-page-diagnostico #medical-buttons {
+page-subdiagnostico #medical-buttons {
   position: fixed;
   z-index: 9999;
   bottom: 5px; }
 
-/*# sourceMappingURL=diagnostico.css.map */
+/*# sourceMappingURL=subdiagnostico.css.map */

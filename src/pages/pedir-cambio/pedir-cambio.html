@@ -13,14 +13,11 @@
 </ion-header>
 
 <ion-content class="home" padding>
-  <form class="transparent" (ngSubmit)="add()">
-
     <ion-label stacked>Descripcion:</ion-label>
     <ion-item>
       <ion-textarea class="transparent" placeholder="Describe el motivo del cambio" name="especialidad"></ion-textarea>
     </ion-item>
-    <button ion-button class="button-width" type="submit" block outline>Pedir cambio</button>
-  </form>
+    <button ion-button class="button-width" outline (click)="presentConfirm()">Pedir cambio</button>
   <div id="logo">
     <img src="assets/images/logo.png" alt="" class="logo">
   </div>
