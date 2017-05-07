@@ -27,6 +27,7 @@ export class ListadoCitasAdminPage {
     " La uid del paciente es: " + uidPaciente );
   }
 
+
   anularCita(keyDiag){
     let popup = this.alert.create();
     popup.setTitle('Anular cita');
