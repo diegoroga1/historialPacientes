@@ -1,3 +1,5 @@
+import { VerCalendarioPage } from './../pages/ver-calendario/ver-calendario';
+import { MedicoscitaAdminPage } from './../pages/medicoscita-admin/medicoscita-admin';
 import { ListadoCitasAdminPage } from './../pages/listado-citas-admin/listado-citas-admin';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -18,15 +20,14 @@ import {CitasPendientesMedicoPage} from "../pages/citas-pendientes-medico/citas-
 import {CitasPendientesPage} from "../pages/citas-pendientes/citas-pendientes";
 import { HistorialpacientePage } from "../pages/historialpaciente/historialpaciente";
 
-
-
 // Import the AF2 Module
 import { AngularFireModule,
   AuthMethods,
   AuthProviders
 } from 'angularfire2';
-
-
+import { DatePicker } from "@ionic-native/date-picker";
+import { DatePipe } from "@angular/common";
+import { ModalHorarioPage } from "../pages/modal-horario/modal-horario";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCl1MSp5klkV1llJvw52GU3PzjOJjVYhq4",
@@ -59,11 +60,14 @@ export const firebaseAuthConfig = {
     DiagnosticoPage,
     PedircitaPage,
     CitasPendientesMedicoPage,
-    CitasPendientesPage
+    CitasPendientesPage,
+    MedicoscitaAdminPage,
+    VerCalendarioPage,
+    ModalHorarioPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig)
+    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -83,8 +87,12 @@ export const firebaseAuthConfig = {
     DiagnosticoPage,
     PedircitaPage,
     CitasPendientesMedicoPage,
-    CitasPendientesPage
+    CitasPendientesPage,
+    MedicoscitaAdminPage,
+    VerCalendarioPage,
+    ModalHorarioPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, DatePicker, DatePipe]
 })
 export class AppModule {}
+
