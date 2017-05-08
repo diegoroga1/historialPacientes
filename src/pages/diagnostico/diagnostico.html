@@ -42,7 +42,11 @@
     <h4>Subdiágnosticos</h4>
   </ion-label>
   <hr class="style14">
+<<<<<<< HEAD
   <ion-list id="diags-list" *ngFor="let sub of paciente_subdiag ">
+=======
+  <ion-list id="diags-list" *ngFor="let sub of Subdiags |async">
+>>>>>>> 6119b5595a5ae9844f7df0ec274d5c5e76e86221
     <ion-card (click)="goToViewSub(sub.$key)">
       <ion-card-header>
         <h1>{{sub.title}}</h1>

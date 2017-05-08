@@ -1,0 +1,37 @@
+page-listado-medicos .home {
+  background: #93cede;
+  background: -moz-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
+  background: -webkit-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
+  background: -o-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
+  background: -ms-linear-gradient(top, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
+  background: linear-gradient(to bottom, #93cede 0%, #93cede 22%, #79bfd3 80%, #75bdd1 84%, #49a5bf 90%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#93cede', endColorstr='#49a5bf', GradientType=0); }
+page-listado-medicos #logo {
+  text-align: center;
+  width: 100%; }
+page-listado-medicos ion-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 90px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: -1; }
+page-listado-medicos .texto {
+  color: white !important;
+  font-size: 1.4em; }
+page-listado-medicos ._50percent {
+  margin: 0 !important; }
+page-listado-medicos .inline {
+  display: flex; }
+page-listado-medicos .dark {
+  font-weight: bold; }
+page-listado-medicos .upper-distance {
+  margin-top: 15px; }
+page-listado-medicos .bottom-distance {
+  margin-bottom: 15px; }
+page-listado-medicos .distance-left {
+  margin-left: 9px !important; }
+
+/*# sourceMappingURL=listado-medicos.css.map */

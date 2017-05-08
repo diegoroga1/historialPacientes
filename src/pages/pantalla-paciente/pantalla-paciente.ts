@@ -8,7 +8,11 @@ import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
 import {CitasPendientesPage} from "../citas-pendientes/citas-pendientes";
 import {HistorialpacientePage} from "../historialpaciente/historialpaciente";
 import {AngularFire} from "angularfire2";
+<<<<<<< HEAD
+import {ListadoMedicosPage} from "../listado-medicos/listado-medicos";
+=======
 import {PerfilPage} from "../perfil/perfil";
+>>>>>>> origin/Perfil
 /*
  Generated class for the PantallaPaciente page.
 
@@ -53,14 +57,14 @@ export class IntroPaciente {
     console.log("Ir a Citas pendientes");
     this.navCtrl.push(CitasPendientesPage);
   }
-  irAListadoMedicos(){
-    console.log("Ir a Listado Medicos");
-  }
   irAPerfilMedico(){
     console.log("Ir a Perfil");
   }
   irAPerfil(){
     this.navCtrl.push(PerfilPage);
+  }
+  irAListadoMedicos(){
+    this.navCtrl.push(ListadoMedicosPage);
   }
 
   verFichaPaciente(){
