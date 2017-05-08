@@ -8,11 +8,11 @@ import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
 import {CitasPendientesPage} from "../citas-pendientes/citas-pendientes";
 import {HistorialpacientePage} from "../historialpaciente/historialpaciente";
 import {AngularFire} from "angularfire2";
-<<<<<<< HEAD
+
 import {ListadoMedicosPage} from "../listado-medicos/listado-medicos";
-=======
+
 import {PerfilPage} from "../perfil/perfil";
->>>>>>> origin/Perfil
+
 /*
  Generated class for the PantallaPaciente page.
 
