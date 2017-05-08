@@ -45,6 +45,10 @@ export class IntroAdmin {
     this.navCtrl.push(EliminarCuentaPage);
   }
 
+  logout(){
+    this.firebase.auth.logout();
+    this.navCtrl.setRoot(IntroPage);
+  }
   //Selecciona el tipo de usuario
   selectType() {
     let popup = this.alertCtrl.create();

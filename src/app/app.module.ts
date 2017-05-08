@@ -1,3 +1,4 @@
+import { MedicoscitaAdminPage } from './../pages/medicoscita-admin/medicoscita-admin';
 import { ListadoCitasAdminPage } from './../pages/listado-citas-admin/listado-citas-admin';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -20,8 +21,6 @@ import {PedirCambioPage} from "../pages/pedir-cambio/pedir-cambio";
 import {ModificarCuentaPage} from "../pages/modificar-cuenta/modificar-cuenta";
 
 
-
-
 // Import the AF2 Module
 import { AngularFireModule,
   AuthMethods,
@@ -34,9 +33,9 @@ import {SubdiagnosticoPage} from "../pages/subdiagnostico/subdiagnostico";
 import {ModificarDatosPage} from "../pages/modificar-datos/modificar-datos";
 import {EliminarCuentaPage} from "../pages/eliminar-cuenta/eliminar-cuenta";
 
-
-
-
+import { DatePicker } from "@ionic-native/date-picker";
+import { DatePipe } from "@angular/common";
+import { ModalHorarioPage } from "../pages/modal-horario/modal-horario";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCl1MSp5klkV1llJvw52GU3PzjOJjVYhq4",
@@ -79,11 +78,13 @@ export const firebaseAuthConfig = {
     PerfilPage,
     ModificarCuentaPage,
     ModificarDatosPage,
-    EliminarCuentaPage
+    EliminarCuentaPage,
+    MedicoscitaAdminPage,
+    ModalHorarioPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig)
+    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -113,8 +114,11 @@ export const firebaseAuthConfig = {
     PerfilPage,
     ModificarCuentaPage,
     ModificarDatosPage,
-    EliminarCuentaPage
+    EliminarCuentaPage,
+    MedicoscitaAdminPage,
+    ModalHorarioPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, DatePicker, DatePipe]
 })
 export class AppModule {}
+

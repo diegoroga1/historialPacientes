@@ -1,3 +1,4 @@
+import { IntroPage } from '../intro/intro';
 import { Component,ViewChild } from '@angular/core';
 import { Nav,NavController, NavParams } from 'ionic-angular';
 //import{ FichaPacientePage} from '../ficha-paciente/ficha-paciente';
@@ -28,17 +29,10 @@ export class IntroPaciente {
   user:any;
   Uid = localStorage.getItem("user_uid");
   menuItems=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams, firebase: AngularFire) {
-    firebase.database.object('/usuarios/'+this.Uid,{preserveSnapshot: true}).subscribe(info => {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public firebase: AngularFire) {
+    this.firebase.database.object('/usuarios/'+this.Uid,{preserveSnapshot: true}).subscribe(info => {
       this.user = info.val().nombre;
     });
-    this.menuItems=[
-      'Perfil',
-      'Pacientes',
-      'Citas',
-      'Médicos',
-      'Cerrar sesion'
-    ]
   }
 
   ionViewDidLoad() {
@@ -69,6 +63,10 @@ export class IntroPaciente {
 
   verFichaPaciente(){
     this.navCtrl.push(VerFichaPropiaPage);
+  }
+  logout(){
+    this.firebase.auth.logout();
+    this.navCtrl.setRoot(IntroPage);
   }
 
 }

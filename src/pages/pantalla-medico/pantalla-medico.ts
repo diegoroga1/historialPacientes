@@ -1,3 +1,4 @@
+import { IntroPage } from '../intro/intro';
 import { Component,ViewChild } from '@angular/core';
 import { Nav,NavController, NavParams } from 'ionic-angular';
 
@@ -21,7 +22,7 @@ export class IntroMedico {
   Uid = localStorage.getItem("user_uid");
   user:any;
   menuItems=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams, firebase: AngularFire) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public firebase: AngularFire) {
     firebase.database.object('/usuarios/'+this.Uid,{preserveSnapshot: true}).subscribe(info => {
       this.user = info.val().nombre;
     });
@@ -43,6 +44,11 @@ export class IntroMedico {
 
 
   }
+  logout(){
+    this.firebase.auth.logout();
+    this.navCtrl.setRoot(IntroPage);
+  }
+
   irACitasPendientes(){
     this.navCtrl.push(CitasPendientesMedicoPage);
   }

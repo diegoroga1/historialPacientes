@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {AngularFire, FirebaseAuth, FirebaseListObservable} from "angularfire2";
+import {AngularFire, FirebaseListObservable} from "angularfire2";
 
 /*
   Generated class for the EliminarCuenta page.
@@ -16,7 +16,7 @@ export class EliminarCuentaPage {
 
   usuarios:FirebaseListObservable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public firebase: AngularFire, public auth: FirebaseAuth) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public firebase: AngularFire) {
 
     this.usuarios = firebase.database.list('/usuarios', {
       query: {
