@@ -1,33 +1,8 @@
 <ion-header >
   <ion-navbar color="primary">
-    <button  ion-button="" menuToggle >
-      <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title>Pagina administrador</ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-menu [content]="content" id="menu2">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Perfil</ion-title>
-      <img class="circle" src="//ionicframework.com/img/docs/spengler.jpg">
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content>
-    <ion-list>
-      <h1 menuClose ion-item *ngFor="let p of menus">
-        {{p.title}}
-      </h1>
-    </ion-list>
-
-    <ion-buttons>
-      <button ion-button class="logout" (click)="logOut()">LogOut</button>
-    </ion-buttons>
-  </ion-content>
-
-</ion-menu>
 
 <ion-content padding class="home">
   <ion-list class="principal" align="center" margin-top="80px">

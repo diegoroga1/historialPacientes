@@ -9,6 +9,7 @@ import{ VistaFichaPacientePage} from '../vista-ficha-paciente/vista-ficha-pacien
 import {CitasPendientesMedicoPage} from "../citas-pendientes-medico/citas-pendientes-medico";
 import {AngularFire} from "angularfire2";
 import {PerfilPage} from "../perfil/perfil";
+import {ListadoMedicosPage} from "../listado-medicos/listado-medicos";
 
 
 @Component({
@@ -47,6 +48,7 @@ export class IntroMedico {
   }
   irAListadoMedicos(){
     console.log("Ir a Listado Medicos");
+    this.navCtrl.push(ListadoMedicosPage);
   }
   IrAPerfil(){
     this.navCtrl.push(PerfilPage);
