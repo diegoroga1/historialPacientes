@@ -17,10 +17,7 @@ import {SubdiagnosticoPage} from "../subdiagnostico/subdiagnostico";
 export class DiagnosticoPage {
   diags: FirebaseListObservable<any>;
   Subdiags: FirebaseListObservable<any>;
-<<<<<<< HEAD
   subdiags_uid:FirebaseListObservable<any>;
-=======
->>>>>>> 6119b5595a5ae9844f7df0ec274d5c5e76e86221
   data: FirebaseObjectObservable<any>;
   diagId: string;
   paciente_subdiag=[];
@@ -29,10 +26,7 @@ export class DiagnosticoPage {
     this.diagId = this.navParams.get('diagId');
     this.diags = af.database.list('/diags');
     this.Subdiags = af.database.list('/subdiagnosticos');
-<<<<<<< HEAD
     this.subdiags_uid=af.database.list('/diags/'+this.diagId+'/subdiagnosticos');
-=======
->>>>>>> 6119b5595a5ae9844f7df0ec274d5c5e76e86221
     this.data = af.database.object('/diags/'+this.diagId);
 
     console.log(this.subdiags_uid);

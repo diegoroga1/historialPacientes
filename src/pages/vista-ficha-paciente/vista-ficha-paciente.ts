@@ -18,7 +18,6 @@ import "rxjs/add/operator/map";
 })
 export class VistaFichaPacientePage {
   diags:FirebaseListObservable<any>;
-<<<<<<< HEAD
   user:FirebaseListObservable<any>;
   user_name:any;
   user_edad:any;
@@ -71,14 +70,7 @@ export class VistaFichaPacientePage {
       })
     })
     }
-=======
   uid: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public actionSheetCtrl: ActionSheetController,public af:AngularFire) {
-    this.uid = this.navParams.get('uid');
-    this.diags=af.database.list('/diags',{
-          }).map((array)=>array.reverse()) as FirebaseListObservable<any>;
-  }
->>>>>>> 6119b5595a5ae9844f7df0ec274d5c5e76e86221
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VistaFichaPacientePage');
@@ -91,14 +83,10 @@ export class VistaFichaPacientePage {
   }
   addDiag(){
     console.log("Añadir diagnostico");
-<<<<<<< HEAD
     this.navCtrl.push(CausaPage,{
       uid:this.user_uid
-
     });
-=======
     this.navCtrl.push(CausaPage,{uid:this.uid});
->>>>>>> 6119b5595a5ae9844f7df0ec274d5c5e76e86221
   }
   goToViewDiag(diagId){
     this.navCtrl.push(DiagnosticoPage,{

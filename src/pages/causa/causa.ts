@@ -38,26 +38,15 @@ export class CausaPage {
     console.log(this.uid)
     this.paciente = af.database.list('/usuarios/'+this.uid+'/diagnosticos')
     this.medico = af.database.list('/usuarios/'+this.Uid+'/diagnosticos');
-<<<<<<< HEAD
-  }
-
-  add(){
-    this.diags.push(this.campos);
-    this.navCtrl.push(VistaFichaPacientePage);
-=======
-
   }
   add(){
->>>>>>> 6119b5595a5ae9844f7df0ec274d5c5e76e86221
     var Idkey,key;
     Idkey = this.diags.push(this.campos);
     key = Idkey.key;
     this.diagmedico.uid = key;
     this.diagpaciente.uid = key;
-<<<<<<< HEAD
+
     console.log(this.diagpaciente);
-=======
->>>>>>> 6119b5595a5ae9844f7df0ec274d5c5e76e86221
     this.paciente.push(this.diagpaciente)
     this.medico.push(this.diagmedico)
     this.navCtrl.push(VistaFichaPacientePage,{uid:this.uid});
