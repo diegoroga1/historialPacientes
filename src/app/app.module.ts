@@ -15,6 +15,7 @@ import {PedircitaPage} from "../pages/pedircita/pedircita";
 import {CitasPendientesMedicoPage} from "../pages/citas-pendientes-medico/citas-pendientes-medico";
 import {CitasPendientesPage} from "../pages/citas-pendientes/citas-pendientes";
 import { HistorialpacientePage } from "../pages/historialpaciente/historialpaciente";
+import {ModificarCuentaPage} from "../pages/modificar-cuenta/modificar-cuenta";
 
 
 
@@ -26,6 +27,9 @@ import { AngularFireModule,
 import {ListadoMedicosPage} from "../pages/listado-medicos/listado-medicos";
 import {CrearSubdiagPage} from "../pages/crear-subdiag/crear-subdiag";
 import {SubdiagnosticoPage} from "../pages/subdiagnostico/subdiagnostico";
+import {ModificarDatosPage} from "../pages/modificar-datos/modificar-datos";
+import {EliminarCuentaPage} from "../pages/eliminar-cuenta/eliminar-cuenta";
+
 
 
 
@@ -62,6 +66,9 @@ export const firebaseAuthConfig = {
     ListadoMedicosPage,
     CrearSubdiagPage,
     SubdiagnosticoPage,
+    ModificarCuentaPage,
+    ModificarDatosPage,
+    EliminarCuentaPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -87,6 +94,9 @@ export const firebaseAuthConfig = {
     ListadoMedicosPage,
     CrearSubdiagPage,
     SubdiagnosticoPage,
+    ModificarCuentaPage,
+    ModificarDatosPage,
+    EliminarCuentaPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

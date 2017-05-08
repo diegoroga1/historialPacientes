@@ -1,0 +1,21 @@
+<!--
+  Generated template for the ModificarCuenta page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Modificar Cuenta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="home">
+  <ion-list *ngFor="let user of usuarios | async">
+   <button ion-button class="button-width" outline (click)="eliminarCuenta(user.$key)"><h5>{{user.nombre}}</h5></button>
+
+  </ion-list>
+</ion-content>

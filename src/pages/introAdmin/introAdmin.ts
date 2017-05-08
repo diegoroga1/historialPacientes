@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import {NavController, ToastController, MenuController, NavParams, AlertController} from "ionic-angular";
 import {AngularFire} from "angularfire2";
 import {IntroPage} from "../intro/intro";
+import {ModificarCuentaPage} from "../modificar-cuenta/modificar-cuenta";
+import {EliminarCuentaPage} from "../eliminar-cuenta/eliminar-cuenta";
 
 
 
@@ -33,6 +35,14 @@ export class IntroAdmin {
     },{
       title: 'Dirección: '
     }];
+  }
+
+  modificarCuenta(){
+    this.navCtrl.push(ModificarCuentaPage);
+  }
+
+  eliminarCuenta(){
+    this.navCtrl.push(EliminarCuentaPage);
   }
 
   //Selecciona el tipo de usuario

@@ -10,6 +10,7 @@ import {AngularFire} from 'angularfire2';
 import {IntroPaciente} from "../pages/pantalla-paciente/pantalla-paciente";
 
 
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -51,6 +52,11 @@ export class MyApp {
         case "paciente":
           this.rootPage = IntroPaciente;
           break;
+        default:
+          this.firebase.auth.logout();
+          this.rootPage = IntroPage;
+          break;
+
       }
     }
 
