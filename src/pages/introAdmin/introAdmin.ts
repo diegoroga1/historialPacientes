@@ -4,7 +4,8 @@ import {NavController, ToastController, MenuController, NavParams, AlertControll
 import {AngularFire} from "angularfire2";
 import {IntroPage} from "../intro/intro";
 import {PerfilPage} from "../perfil/perfil";
-
+import {ModificarCuentaPage} from "../modificar-cuenta/modificar-cuenta";
+import {EliminarCuentaPage} from "../eliminar-cuenta/eliminar-cuenta";
 
 
 @Component({
@@ -34,6 +35,14 @@ export class IntroAdmin {
     },{
       title: 'Dirección: '
     }];
+  }
+
+  modificarCuenta(){
+    this.navCtrl.push(ModificarCuentaPage);
+  }
+
+  eliminarCuenta(){
+    this.navCtrl.push(EliminarCuentaPage);
   }
 
   //Selecciona el tipo de usuario
