@@ -26,6 +26,7 @@ export class SubdiagnosticoPage {
     this.Subdiags = af.database.list('/subdiagnosticos');
     console.log(this.Subdiags)
     this.data = af.database.object('/diags/'+this.diagId);
+
   }
 
   ionViewDidLoad() {
