@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import {NavController, ToastController, MenuController, NavParams, AlertController} from "ionic-angular";
 import {AngularFire} from "angularfire2";
 import {IntroPage} from "../intro/intro";
+import {PerfilPage} from "../perfil/perfil";
 
 
 
@@ -117,6 +118,9 @@ export class IntroAdmin {
         this.writeToast("Cuenta creada correctamente");
       });
     });
+  }
+  IrAPerfil(){
+    this.navCtrl.push(PerfilPage);
   }
 
   writeToast(message) {
