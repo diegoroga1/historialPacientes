@@ -44,11 +44,6 @@ export class IntroAdmin {
   eliminarCuenta(){
     this.navCtrl.push(EliminarCuentaPage);
   }
-
-  logout(){
-    this.firebase.auth.logout();
-    this.navCtrl.setRoot(IntroPage);
-  }
   //Selecciona el tipo de usuario
   selectType() {
     let popup = this.alertCtrl.create();
@@ -167,7 +162,7 @@ export class IntroAdmin {
     toast.present();
   }
 
-  logOut() {
+  logout() {
     this.firebase.auth.logout().then(
       () => {
         localStorage.removeItem("user_uid");

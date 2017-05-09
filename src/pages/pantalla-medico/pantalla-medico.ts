@@ -44,9 +44,13 @@ export class IntroMedico {
 
 
   }
-  logout(){
-    this.firebase.auth.logout();
-    this.navCtrl.setRoot(IntroPage);
+  logout() {
+    this.firebase.auth.logout().then(
+      () => {
+        localStorage.removeItem("user_uid");
+        this.navCtrl.setRoot(IntroPage);
+      }
+    );
   }
 
   irACitasPendientes(){
