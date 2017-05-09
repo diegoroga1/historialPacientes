@@ -59,7 +59,7 @@ export class PedircitaPage {
     this.citasmedicos.push(this.citasM);
     this.citaspaciente.push(this.citasM);
 
-    this.navCtrl.push(IntroPaciente);
+    this.navCtrl.setRoot(IntroPaciente);
   }
 
 }

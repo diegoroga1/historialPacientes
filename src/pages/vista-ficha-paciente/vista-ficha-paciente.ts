@@ -86,7 +86,7 @@ export class VistaFichaPacientePage {
     this.navCtrl.push(CausaPage,{
       uid:this.user_uid
     });
-    this.navCtrl.push(CausaPage,{uid:this.uid});
+
   }
   goToViewDiag(diagId){
     this.navCtrl.push(DiagnosticoPage,{

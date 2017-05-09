@@ -34,7 +34,7 @@ export class CausaPage {
   };
   constructor(public navCtrl: NavController,public navParams: NavParams, af: AngularFire) {
     this.diags = af.database.list('/diags');
-    this.uid= navParams.get('uid');
+    this.uid= navParams.get('u');
     console.log(this.uid)
     this.paciente = af.database.list('/usuarios/'+this.uid+'/diagnosticos')
     this.medico = af.database.list('/usuarios/'+this.Uid+'/diagnosticos');

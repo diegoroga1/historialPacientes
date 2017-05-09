@@ -27,7 +27,7 @@
           {{a.$value}}
         </ion-note>
       </ion-item>
-      <ion-item margin-top *ngIf="a.$key == 'correo'" (click)="changeEmail()">
+      <ion-item margin-top *ngIf="a.$key == 'email'" (click)="changeEmail()">
         <ion-icon name="ios-mail" item-left></ion-icon>
         Correo
         <ion-note item-right>
@@ -37,6 +37,34 @@
       <ion-item margin-top *ngIf="a.$key == 'telefono'" (click)="changePhone()">
         <ion-icon *ngIf="a.$key == 'telefono'" name="ios-phone-portrait" item-left></ion-icon>
         Telefono:
+        <ion-note item-right>
+          {{a.$value}}
+        </ion-note>
+      </ion-item>
+      <ion-item margin-top *ngIf="a.$key == 'dni'" >
+        <ion-icon *ngIf="a.$key == 'dni'" name="ios-phone-portrait" item-left></ion-icon>
+        DNI:
+        <ion-note item-right>
+          {{a.$value}}
+        </ion-note>
+      </ion-item>
+      <ion-item margin-top *ngIf="a.$key == 'sexo'" >
+        <ion-icon *ngIf="a.$key == 'sexo'" name="ios-phone-portrait" item-left></ion-icon>
+        Sexo:
+        <ion-note item-right>
+          {{a.$value}}
+        </ion-note>
+      </ion-item>
+      <ion-item margin-top *ngIf="a.$key == 'edad'">
+        <ion-icon *ngIf="a.$key == 'edad'" name="ios-phone-portrait" item-left></ion-icon>
+        Edad:
+        <ion-note item-right>
+          {{a.$value}}
+        </ion-note>
+      </ion-item>
+      <ion-item margin-top *ngIf="a.$key == 'fecha'">
+        <ion-icon *ngIf="a.$key == 'fecha'" name="ios-phone-portrait" item-left></ion-icon>
+        Fecha de nacimiento:
         <ion-note item-right>
           {{a.$value}}
         </ion-note>

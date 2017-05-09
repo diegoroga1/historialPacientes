@@ -15,7 +15,7 @@
 
 <ion-content padding class="home">
   <ion-list *ngFor="let user of usuarios | async">
-   <button ion-button class="button-width" outline (click)="eliminarCuenta(user.$key)"><h5>{{user.nombre}}</h5></button>
+   <button ion-button class="button-width" outline (click)="modificarDatos(user.$key)"><h5>{{user.nombre}}</h5></button>
 
   </ion-list>
 </ion-content>
