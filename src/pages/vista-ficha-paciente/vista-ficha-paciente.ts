@@ -16,6 +16,7 @@ import "rxjs/add/operator/map";
   selector: 'page-vista-ficha-paciente',
   templateUrl: 'vista-ficha-paciente.html'
 })
+
 export class VistaFichaPacientePage {
   diags:FirebaseListObservable<any>;
   user:FirebaseListObservable<any>;
